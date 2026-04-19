@@ -53,6 +53,7 @@ DIETARY_SAFE_COMPOUNDS = {
         "creamy coconut", "creamy avocado", "creamy tofu",
         "fish sauce alternative", "vegan fish",
         "cream mixture", "cream base", "the cream",
+        "vegan cream", "cream-based", "plant-based cream",
     ],
     "Gluten-free": [
         "tamari", "gluten-free soy sauce", "coconut aminos",
@@ -165,10 +166,14 @@ def check_alternative_count(response: str) -> list[str]:
 
 
 def _mask_safe_compounds(text: str, safe_compounds: list[str]) -> str:
-    """Longest compounds first so 'dairy-free cream cheese' masks before 'cream'."""
+    """
+    Longest compounds first so 'dairy-free cream cheese' masks before 'cream'.
+    Placeholder uses SAFE__ prefix so single-word compounds (e.g. 'honey' → 'SAFE__honey')
+    can never be re-matched by the forbidden-word checker.
+    """
     masked = text
     for compound in sorted(safe_compounds, key=len, reverse=True):
-        placeholder = re.sub(r'[\s\-]', '_', compound)
+        placeholder = "SAFE__" + re.sub(r'[\s\-]', '_', compound)
         masked = re.sub(re.escape(compound), placeholder, masked, flags=re.IGNORECASE)
     return masked
 
@@ -196,18 +201,48 @@ def _mask_ratio_denominators(text: str) -> str:
     text = re.sub(r'\bstill\s+contain[s]?\s+(?:trace\s+)?\w+', '', text, flags=re.IGNORECASE)
     # "a [adjective] X" when describing what the original is (e.g. "a Japanese soy sauce")
     text = re.sub(r'\ba\s+\w+\s+soy sauce\b', '', text, flags=re.IGNORECASE)
+    # "little to no X", "with little to no X" — describing original ingredient composition
+    text = re.sub(r'\blittle\s+to\s+no\s+\w+', '', text, flags=re.IGNORECASE)
+    # "traditionally X-based", "cream-based", "wheat-based" — describing original dish nature
+    text = re.sub(r'\btraditionally\s+\w+', '', text, flags=re.IGNORECASE)
     return text
+
+
+def extract_original_ingredient(response: str) -> list[str]:
+    """
+    Extract the original ingredient being substituted from the ## heading.
+    e.g. '## Substituting Heavy Cream in Pasta Sauce' → ['heavy cream', 'heavy creams']
+    Returns a list of forms (singular + plural) to add to safe masking.
+    """
+    match = re.search(r"^## Substituting (.+?) (?:in|for|from)\b", response, re.MULTILINE | re.IGNORECASE)
+    if not match:
+        return []
+    raw = match.group(1).strip().lower()
+    forms = [raw]
+    # Add plural: simple 's' suffix if not already plural
+    if not raw.endswith("s"):
+        forms.append(raw + "s")
+    # Add common variant — split multi-word and add each word that's >4 chars
+    words = [w for w in raw.split() if len(w) > 4]
+    forms.extend(words)
+    forms.extend(w + "s" for w in words if not w.endswith("s"))
+    return list(set(forms))
 
 
 def check_dietary(response: str, restriction: str) -> list[str]:
     """
-    Context-aware dietary checker for the substitution bot.
-    Only checks the Best Substitute + Alternatives sections — the original
-    ingredient being replaced will naturally appear in the heading/context.
-    Also strips ratio denominators and comparison phrases that reference the original.
+    V4 context-aware dietary checker for the substitution bot.
+    - Only checks the Best Substitute + Alternatives sections
+    - Strips ratio denominators and comparison phrases
+    - Dynamically adds the original ingredient (from heading) to safe masking
+      so references like 'per 1 cup buttermilk' or 'similar to honey' don't trigger
     """
     forbidden      = DIETARY_FORBIDDEN.get(restriction, [])
-    safe_compounds = DIETARY_SAFE_COMPOUNDS.get(restriction, [])
+    safe_compounds = list(DIETARY_SAFE_COMPOUNDS.get(restriction, []))
+
+    # V4: dynamically add original ingredient + variants to safe list
+    original_forms = extract_original_ingredient(response)
+    safe_compounds.extend(original_forms)
 
     # Only check the recommended substitute sections, not the heading
     match = re.search(r"### Best Substitute(.+)", response, re.DOTALL | re.IGNORECASE)
