@@ -1,0 +1,21 @@
+id,query,ingredient_type,cooking_method,dietary_restriction,query_clarity
+1,I'm out of butter for my chocolate chip cookies — what can I use instead?,Fat,Baking,None,Specific
+2,What can I substitute for eggs in a vegan banana bread?,Binder,Baking,Vegan,Specific
+3,I need a dairy-free substitute for heavy cream in my pasta sauce,Dairy,Sauce,Dairy-free,Specific
+4,Can I replace all-purpose flour with something gluten-free in my pancakes?,Leavening base,Baking,Gluten-free,Specific
+5,What's a good substitute for honey in a vegan salad dressing?,Sweetener,Raw/no-cook,Vegan,Specific
+6,I don't have baking powder — what can I use in my muffins?,Leavening,Baking,None,Specific
+7,What can I use instead of soy sauce for someone with a gluten intolerance?,Flavor,Sautéing,Gluten-free,Specific
+8,I need a nut-free substitute for almond flour in my keto brownies?,Leavening base,Baking,Nut-free,Specific
+9,What can replace buttermilk in a dairy-free fried chicken marinade?,Dairy,Raw/no-cook,Dairy-free,Specific
+10,I have no cornstarch — what can I use to thicken my stir-fry sauce?,Thickener,Sautéing,None,Specific
+11,What's a vegan substitute for gelatin in my panna cotta?,Binder,Raw/no-cook,Vegan,Specific
+12,Can I substitute something for parmesan in a dairy-free risotto?,Flavor,Sautéing,Dairy-free,Specific
+13,What can I use instead of white wine in my mushroom risotto?,Liquid/flavor,Sautéing,None,Specific
+14,I need an egg substitute for coating chicken before frying,Binder,Sautéing,None,Specific
+15,What's a substitute for sugar in a keto chocolate cake?,Sweetener,Baking,None,Specific
+16,I ran out of olive oil for sautéing vegetables — what works?,Fat,Sautéing,None,Specific
+17,What can I use instead of milk in mashed potatoes for a dairy-free version?,Dairy,Raw/no-cook,Dairy-free,Vague
+18,I need something to replace breadcrumbs in meatballs for a gluten-free diet,Binder,Baking,Gluten-free,Specific
+19,What's a substitute for mayonnaise in a vegan coleslaw?,Fat/binder,Raw/no-cook,Vegan,Specific
+20,Can I replace cream cheese in my frosting with something dairy-free?,Dairy,Raw/no-cook,Dairy-free,Specific
