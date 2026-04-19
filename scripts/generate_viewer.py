@@ -46,12 +46,28 @@ def generate_html(data: dict) -> str:
         # Support both legacy (category) and new (dimensions) formats
         if "dimensions" in r and r["dimensions"]:
             dims = r["dimensions"]
-            category     = dims.get("cuisine_type") or dims.get("meal_type") or "General"
-            dim_badges   = "".join(
-                f'<span class="dim-badge">{k.replace("_", " ").title()}: {v}</span>'
-                for k, v in dims.items() if k not in ("realistic", "note") and v
+            # Use dietary_restriction as filter category for substitution agent
+            category = (
+                dims.get("dietary_restriction") or
+                dims.get("cuisine_type") or
+                dims.get("meal_type") or
+                "None"
             )
-            sub_line     = f'<div class="dimensions">{dim_badges}</div>'
+            # Badge color map for substitution dimensions
+            badge_colors = {
+                "ingredient_type":   ("🧂", "#fef3c7", "#92400e"),   # amber
+                "cooking_method":    ("🍳", "#dbeafe", "#1e40af"),   # blue
+                "dietary_restriction": ("🥗", "#dcfce7", "#166534"), # green
+                "query_clarity":     ("🔍", "#f3e8ff", "#6b21a8"),   # purple
+            }
+            dim_badges = ""
+            for k, v in dims.items():
+                if not v or k in ("realistic", "note"):
+                    continue
+                icon, bg, color = badge_colors.get(k, ("", "#f3f4f6", "#374151"))
+                label = k.replace("_", " ").title()
+                dim_badges += f'<span class="dim-badge" style="background:{bg};color:{color}">{icon} {label}: <b>{v}</b></span>'
+            sub_line = f'<div class="dimensions">{dim_badges}</div>'
         else:
             category   = r.get("category", "General")
             sub_line   = f'<div class="failure-mode">🎯 {r.get("failure_mode_tested", "")}</div>'
@@ -72,12 +88,17 @@ def generate_html(data: dict) -> str:
         </div>
         """
 
-    # Build filter categories
+    # Build filter categories — use dietary_restriction for substitution agent
     cats = []
     for r in results:
         if "dimensions" in r and r["dimensions"]:
             dims = r["dimensions"]
-            cats.append(dims.get("cuisine_type") or dims.get("meal_type") or "General")
+            cats.append(
+                dims.get("dietary_restriction") or
+                dims.get("cuisine_type") or
+                dims.get("meal_type") or
+                "None"
+            )
         else:
             cats.append(r.get("category", "General"))
 
@@ -91,7 +112,7 @@ def generate_html(data: dict) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VP Recipe Agent — Eval Results</title>
+<title>VP Substitution Agent — Eval Results</title>
 <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -142,7 +163,7 @@ def generate_html(data: dict) -> str:
 <body>
 
 <header>
-  <h1>🍳 VP Recipe Agent — Eval Results</h1>
+  <h1>🔄 VP Substitution Agent — Eval Results</h1>
   <div class="meta-bar">
     <span>🕐 <b>{meta['timestamp']}</b></span>
     <span>🤖 Model: <b>{meta['model']}</b></span>

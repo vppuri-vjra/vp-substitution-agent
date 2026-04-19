@@ -81,7 +81,7 @@ def main():
     results = []
     total   = len(queries)
 
-    print(f"\n🍳 VP Recipe Agent — Bulk Test")
+    print(f"\n🔄 VP Substitution Agent — Bulk Test")
     print(f"   Model   : {MODEL}")
     print(f"   CSV     : {csv_path.name}")
     print(f"   Queries : {total}")
