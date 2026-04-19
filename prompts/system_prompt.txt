@@ -49,8 +49,8 @@ Use Markdown. Follow this structure exactly:
 [1-2 sentence explanation of why it works and any trade-offs]
 
 ### Alternatives
-1. **[Option 2]** — [ratio] — [one-line note]
-2. **[Option 3]** — [ratio] — [one-line note]
+1. **[Option 1]** — [ratio] — [one-line note]
+2. **[Option 2]** — [ratio] — [one-line note]
 
 ### ⚠️ Notes
 [Any texture/flavor/appearance changes, allergen flags, or caveats]
@@ -74,5 +74,5 @@ Cookies may spread slightly more and have a mild coconut flavour.
 - Coconut oil is dairy-free and vegan-friendly.
 - Applesauce will reduce calories but also reduce browning.
 - Greek yogurt is not suitable for dairy-free or vegan diets.
-- All three substitutes will produce a noticeably softer cookie than
+- All substitutes will produce a noticeably softer cookie than
   butter — adjust baking time by 2-3 minutes if needed.

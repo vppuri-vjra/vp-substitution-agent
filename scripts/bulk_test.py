@@ -28,8 +28,8 @@ MAX_TOKENS = 1024
 SYSTEM_PROMPT_FILE = ROOT / "prompts" / "system_prompt.txt"
 RESULTS_DIR        = ROOT / "results"
 
-# Dimension columns to carry through from dimension_queries.csv
-DIMENSION_COLUMNS = ["cuisine_type", "dietary_restriction", "meal_type", "skill_level", "realistic", "note"]
+# Dimension columns to carry through from substitution_queries.csv
+DIMENSION_COLUMNS = ["ingredient_type", "cooking_method", "dietary_restriction", "query_clarity", "realistic", "note"]
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

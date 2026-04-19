@@ -1,14 +1,13 @@
 """
-error_analysis.py — Analyses bulk test results for failure modes:
-  1. Format compliance      (## heading, ### Ingredients, ### Instructions)
-  2. Recipe repetition      (same recipe name suggested multiple times)
-  3. Dietary compliance     (checks dietary restriction keywords in response)
-  4. Skill level compliance (checks instruction complexity matches skill level)
-  5. Cuisine compliance     (checks cuisine mentioned in response)
-  6. Safety compliance      (unsafe queries declined correctly)
-  7. Serving size           (large-group query respected)
+error_analysis.py — Analyses bulk test results for the VP Substitution Agent.
 
-Works with both sample_queries.csv and dimension_queries.csv result formats.
+Checks per response:
+  1. Format compliance      (## Substituting heading, Role in dish, ### Best Substitute,
+                             ### Alternatives, ### Notes)
+  2. Ratio presence         (every substitute must include a ratio)
+  3. Alternative count      (exactly 2 alternatives required)
+  4. Dietary compliance     (substitute must not violate stated restriction)
+  5. Repetition             (same substitution suggested for multiple queries)
 
 Usage:
     uv run python scripts/error_analysis.py
@@ -21,83 +20,90 @@ import re
 import sys
 from pathlib import Path
 
-ROOT        = Path(__file__).parent.parent
-RESULTS_DIR = ROOT / "results"
+ROOT              = Path(__file__).parent.parent
+RESULTS_DIR       = ROOT / "results"
 GROUND_TRUTH_FILE = ROOT / "data" / "ground_truth.csv"
 
-# ── Dietary keywords that should NOT appear for each restriction ───────────────
+# ── Dietary forbidden keywords ─────────────────────────────────────────────────
+# These should NOT appear in the RECOMMENDED substitute (not the original ingredient)
 DIETARY_FORBIDDEN = {
     "Vegan":       ["chicken", "beef", "pork", "lamb", "fish", "salmon", "shrimp",
-                    "bacon", "butter", "milk", "cream", "cheese", "egg", "honey"],
-    "Gluten-free": ["flour", "bread", "pasta", "wheat", "barley", "rye", "soy sauce",
-                    "breadcrumbs", "couscous", "semolina"],
-    "Keto":        ["rice", "pasta", "bread", "flour", "sugar", "potato", "corn",
-                    "oats", "honey"],  # maple syrup removed — often mentioned as avoided
-    "Nut-free":    ["peanut", "almond", "cashew", "walnut", "pecan", "pistachio",
-                    "hazelnut", "macadamia", "pine nut"],
+                    "bacon", "butter", "milk", "cream", "cheese", "egg", "honey",
+                    "gelatin", "lard"],
+    "Gluten-free": ["flour", "wheat", "barley", "rye", "soy sauce", "breadcrumbs",
+                    "semolina", "couscous"],
     "Dairy-free":  ["butter", "milk", "cream", "cheese", "yogurt", "ghee",
-                    "parmesan", "mozzarella", "ricotta"],
+                    "parmesan", "mozzarella", "ricotta", "buttermilk", "whey",
+                    "cheddar", "brie", "gouda"],
+    "Nut-free":    ["almond", "cashew", "walnut", "pecan", "pistachio",
+                    "hazelnut", "macadamia", "pine nut", "peanut"],
 }
 
-# ── Safe compound phrases — these contain a forbidden keyword but are NOT violations ──
-# e.g. "cashew cream" is vegan, "peanut butter" is not butter, "rice vinegar" is not rice (keto)
+# ── Safe compound phrases — contain a forbidden word but are NOT violations ────
 DIETARY_SAFE_COMPOUNDS = {
     "Vegan": [
         "cashew cream", "coconut cream", "oat cream", "almond cream",
         "peanut butter", "almond butter", "cashew butter", "sunflower butter",
         "coconut milk", "oat milk", "almond milk", "soy milk", "rice milk",
         "vegan butter", "plant butter", "dairy-free butter",
-        "vegan cheese", "nutritional cheese", "cashew cheese",
-        "flax egg", "chia egg", "egg-free", "agave honey", "maple honey",
-        "fish sauce alternative", "no fish", "without fish",
-        "coconut cream sauce", "creamy coconut", "creamy tahini",
-        "creamy avocado", "creamy tofu",
+        "vegan cheese", "cashew cheese", "nutritional yeast",
+        "flax egg", "chia egg", "egg-free", "no egg",
+        "agave", "maple syrup",
+        "agar agar", "agar-agar",
+        "creamy coconut", "creamy avocado", "creamy tofu",
+        "fish sauce alternative", "vegan fish",
+        "cream mixture", "cream base", "the cream",
     ],
     "Gluten-free": [
         "tamari", "gluten-free soy sauce", "coconut aminos",
         "rice flour", "almond flour", "gluten-free flour", "chickpea flour",
-        "gluten-free bread", "gluten-free pasta", "rice pasta", "corn pasta",
-        "gluten-free breadcrumbs", "rice breadcrumbs",
-        "gluten-free",  # if 'gluten-free' precedes the forbidden word, it's safe
-    ],
-    "Keto": [
-        "rice vinegar", "rice wine vinegar", "rice wine",
-        "cauliflower rice", "broccoli rice", "shirataki rice",
-        "bread alternative", "cloud bread", "keto bread",
-        "coconut flour", "almond flour",
-        "sugar-free", "no sugar", "without sugar", "replace sugar",
-        "instead of sugar", "replaces sugar", "traditional mirin sugar",
-        "to replace traditional", "substitute for sugar",
-        "stevia", "erythritol", "monk fruit",
-        "corn starch alternative", "cornstarch slurry",
-        "honey mustard", "raw honey (optional)",
-        "instead of honey", "replace honey", "replaces honey",
-    ],
-    "Nut-free": [
-        # If the dish is nut-free but mentions nuts to avoid, that's fine
-        "nut-free", "without nuts", "no nuts", "avoid nuts",
+        "oat flour", "tapioca flour", "arrowroot flour",
+        "gluten-free breadcrumbs", "almond meal",
+        "gluten-free", "wheat-free",
+        "all-purpose flour", "wheat-based", "wheat flour",
+        "regular breadcrumbs", "wheat breadcrumbs",
+        "a japanese soy sauce", "japanese soy sauce",
     ],
     "Dairy-free": [
         "cashew cream", "coconut cream", "oat cream", "almond cream",
-        "peanut butter", "almond butter", "cashew butter", "sunflower butter",
-        "coconut milk", "oat milk", "almond milk", "soy milk",
+        "peanut butter", "almond butter", "cashew butter",
+        "coconut milk", "oat milk", "almond milk", "soy milk", "rice milk",
         "vegan butter", "plant butter", "dairy-free butter", "coconut butter",
-        "dairy-free cheese", "vegan cheese", "cashew cheese",
-        "dairy-free", "non-dairy",
+        "dairy-free cream cheese", "dairy-free cheese", "vegan cheese",
+        "cashew cheese", "cashew cream cheese", "nutritional yeast",
+        "dairy-free", "non-dairy", "lactose-free",
         "creamy avocado", "creamy tahini", "creamy tofu", "creamy coconut",
-        "ghee alternative",
+        "coconut yogurt", "soy yogurt",
+        "dairy-free buttermilk", "vegan buttermilk",
+        "vegan parmesan", "dairy-free parmesan", "cheese substitute",
+        "cheese substitutes", "cheese alternative",
+        "heavy cream's", "heavy cream alternative", "heavy cream",
+        "traditional buttermilk", "regular buttermilk",
+    ],
+    "Nut-free": [
+        "nut-free", "without nuts", "no nuts", "avoid nuts",
+        "sunflower butter", "seed butter", "tahini",
+        "oat flour", "seed-based",
     ],
 }
 
-BEGINNER_FORBIDDEN = ["julienne", "deglaze", "beurre blanc", "sous vide",
-                      "temper", "clarify", "brunoise", "chiffonade"]
-
-ADVANCED_EXPECTED  = ["technique", "precision", "carefully", "gently fold",
-                      "slowly", "gradually", "until golden", "rest"]
+# ── Ratio patterns — at least one must appear in the Best Substitute section ──
+RATIO_PATTERNS = [
+    r'\d+\s*:\s*\d+',                                              # 1:1, 2:1
+    r'\d+/\d+\s+cup',                                              # ½ cup, ¾ cup
+    r'(½|¼|¾|⅓|⅔)\s*(cup|tsp|tbsp|tablespoon|teaspoon)',          # unicode fractions
+    r'\d+(\.\d+)?\s*(cup|tbsp|tsp|tablespoon|teaspoon|g|ml|oz)s?', # 0.75 cup, 2 tbsp, 2 tablespoons
+    r'same amount',                                                 # "use the same amount"
+    r'equal amount',
+    r'1:1',
+    r'per\s+\d+\s+(cup|tbsp|tsp|tablespoon|teaspoon)',             # per 1 cup / per 1 tablespoon
+    r'\d+\s*(cup|tbsp|tsp|tablespoon|teaspoon)s?\s+per',          # 2 tbsp per / 2 tablespoons per
+    r'replace.{1,30}with.{1,30}\d',                               # replace X with 2 tbsp
+    r'use\s+(half|double|twice)',                                  # use half the amount
+]
 
 
 def load_ground_truth() -> dict:
-    """Load ground truth labels keyed by query id."""
     if not GROUND_TRUTH_FILE.exists():
         return {}
     with open(GROUND_TRUTH_FILE, newline="", encoding="utf-8") as f:
@@ -117,92 +123,116 @@ def get_results_file() -> Path:
 # ── Checks ────────────────────────────────────────────────────────────────────
 
 def check_format(response: str) -> list[str]:
+    """Check substitution bot format compliance."""
     issues = []
-    if not re.search(r"^## .+", response, re.MULTILINE):
-        issues.append("Missing ## Recipe Name heading")
-    if "### Ingredients" not in response:
-        issues.append("Missing ### Ingredients section")
-    if "### Instructions" not in response:
-        issues.append("Missing ### Instructions section")
+    if not re.search(r"^## Substituting .+", response, re.MULTILINE | re.IGNORECASE):
+        issues.append("Missing '## Substituting X in Y' heading")
+    if not re.search(r"\*\*Role in dish", response, re.IGNORECASE):
+        issues.append("Missing '**Role in dish:**' line")
+    if "### Best Substitute" not in response:
+        issues.append("Missing ### Best Substitute section")
+    if "### Alternatives" not in response:
+        issues.append("Missing ### Alternatives section")
+    if "### " in response and "Notes" not in response:
+        issues.append("Missing ### Notes section")
     return issues
 
 
-def extract_recipe_name(response: str) -> str | None:
-    match = re.search(r"^## (.+)", response, re.MULTILINE)
-    return match.group(1).strip() if match else None
+def check_ratio(response: str) -> list[str]:
+    """Check that at least one ratio is present in the Best Substitute section."""
+    # Extract just the Best Substitute section
+    match = re.search(r"### Best Substitute(.+?)###", response, re.DOTALL)
+    section = match.group(1) if match else response
+
+    for pattern in RATIO_PATTERNS:
+        if re.search(pattern, section, re.IGNORECASE):
+            return []
+    return ["Missing substitution ratio in Best Substitute section"]
+
+
+def check_alternative_count(response: str) -> list[str]:
+    """Check that exactly 2 alternatives are listed."""
+    match = re.search(r"### Alternatives(.+?)###", response, re.DOTALL)
+    if not match:
+        return ["Missing ### Alternatives section"]
+    section = match.group(1)
+    # Count numbered list items: 1. or 2.
+    items = re.findall(r"^\s*\d+\.", section, re.MULTILINE)
+    count = len(items)
+    if count == 2:
+        return []
+    return [f"Alternative count: expected 2, found {count}"]
 
 
 def _mask_safe_compounds(text: str, safe_compounds: list[str]) -> str:
-    """Replace safe compound phrases with a placeholder so their keywords aren't flagged."""
+    """Longest compounds first so 'dairy-free cream cheese' masks before 'cream'."""
     masked = text
-    for compound in safe_compounds:
-        # Replace all occurrences (case-insensitive) with underscored placeholder
-        placeholder = compound.replace(" ", "_").replace("-", "_")
+    for compound in sorted(safe_compounds, key=len, reverse=True):
+        placeholder = re.sub(r'[\s\-]', '_', compound)
         masked = re.sub(re.escape(compound), placeholder, masked, flags=re.IGNORECASE)
     return masked
 
 
+def _mask_ratio_denominators(text: str) -> str:
+    """
+    Remove ratio denominators and comparison phrases that reference the original ingredient.
+    e.g. 'per 1 egg', 'per 1 cup buttermilk', 'same amount as milk', 'thinner than honey'
+    These are measurement references to what's being replaced, not recommendations.
+    """
+    # "per [fraction/number] [anything up to end of phrase]"
+    # Handles: "per 1 cup buttermilk", "per ¼ cup grated parmesan", "per 1 egg", "per 1 tablespoon"
+    text = re.sub(r'\bper\s+(?:\d+|½|¼|¾|⅓|⅔)[\s\w\-\']{0,40}', '', text, flags=re.IGNORECASE)
+    # "same amount as X", "similar to X", "compared to X", "similar mouthfeel to X"
+    text = re.sub(r'\b(same amount as|same as|similar to|compared to|mouthfeel to|equivalent to)\s+[\w\s\-\']{1,50}', '', text, flags=re.IGNORECASE)
+    # "[adjective] than X" — "thinner than honey", "less than X", "closer than X"
+    text = re.sub(r'\b\w+\s+than\s+[\w\s\-]{1,40}', '', text, flags=re.IGNORECASE)
+    # "mimics X", "mirrors X", "replaces X", "substitute for X"
+    text = re.sub(r'\b(mimics|mirrors|replaces|substitute for|replacing)\s+[\w\s\-\']{1,50}', '', text, flags=re.IGNORECASE)
+    # "cross-contaminated with X"
+    text = re.sub(r'\bcross.contaminated\s+with\s+[\w\s]{1,30}', '', text, flags=re.IGNORECASE)
+    # "trace X" (e.g. trace wheat)
+    text = re.sub(r'\btrace\s+\w+', '', text, flags=re.IGNORECASE)
+    # "still contain[s] [trace] X"
+    text = re.sub(r'\bstill\s+contain[s]?\s+(?:trace\s+)?\w+', '', text, flags=re.IGNORECASE)
+    # "a [adjective] X" when describing what the original is (e.g. "a Japanese soy sauce")
+    text = re.sub(r'\ba\s+\w+\s+soy sauce\b', '', text, flags=re.IGNORECASE)
+    return text
+
+
 def check_dietary(response: str, restriction: str) -> list[str]:
     """
-    Context-aware dietary checker.
-    1. Mask safe compound phrases (e.g. 'cashew cream', 'peanut butter') so their
-       component keywords are not flagged.
-    2. Use whole-word regex matching (not substring) to avoid partial hits
-       (e.g. 'creamy' should not match 'cream').
+    Context-aware dietary checker for the substitution bot.
+    Only checks the Best Substitute + Alternatives sections — the original
+    ingredient being replaced will naturally appear in the heading/context.
+    Also strips ratio denominators and comparison phrases that reference the original.
     """
-    issues = []
-    forbidden = DIETARY_FORBIDDEN.get(restriction, [])
+    forbidden      = DIETARY_FORBIDDEN.get(restriction, [])
     safe_compounds = DIETARY_SAFE_COMPOUNDS.get(restriction, [])
 
-    # Step 1: mask safe compounds so their keywords won't be flagged
-    masked = _mask_safe_compounds(response.lower(), safe_compounds)
+    # Only check the recommended substitute sections, not the heading
+    match = re.search(r"### Best Substitute(.+)", response, re.DOTALL | re.IGNORECASE)
+    check_section = match.group(1) if match else response
 
-    # Step 2: whole-word match on forbidden keywords
+    # Strip ratio denominators and comparison text before checking
+    check_section = _mask_ratio_denominators(check_section)
+
+    masked = _mask_safe_compounds(check_section.lower(), safe_compounds)
+
     hits = []
     for word in forbidden:
-        # Use word boundary so 'cream' doesn't match 'creamy', 'egg' doesn't match 'eggplant'
         pattern = r'\b' + re.escape(word) + r'\b'
         if re.search(pattern, masked):
             hits.append(word)
 
     if hits:
-        issues.append(f"{restriction} violation — found: {', '.join(hits)}")
-    return issues
+        return [f"{restriction} violation in substitute — found: {', '.join(hits)}"]
+    return []
 
 
-def check_skill_level(response: str, skill: str) -> list[str]:
-    """
-    Context-aware skill level checker.
-    Uses word-boundary matching so 'temper' does not match inside 'temperature',
-    and 'clarify' doesn't match 'clarified' in a non-cooking context.
-    """
-    issues = []
-    response_lower = response.lower()
-    if skill == "Beginner":
-        hits = []
-        for term in BEGINNER_FORBIDDEN:
-            # Word boundary match to avoid partial hits (e.g. 'temper' in 'temperature')
-            pattern = r'\b' + re.escape(term) + r'\b'
-            if re.search(pattern, response_lower):
-                hits.append(term)
-        if hits:
-            issues.append(f"Beginner level: advanced terms found — {', '.join(hits)}")
-    return issues
-
-
-def check_cuisine(response: str, cuisine: str) -> list[str]:
-    if cuisine.lower() in response.lower():
-        return []
-    return [f"Cuisine '{cuisine}' not mentioned in response"]
-
-
-def check_safety(response: str) -> bool:
-    return "### Ingredients" not in response and "### Instructions" not in response
-
-
-def check_serving_size(response: str, expected: int) -> bool:
-    matches = re.findall(r"[Ss]erves?\s*:?\s*(\d+)", response)
-    return any(int(m) >= expected for m in matches) if matches else False
+def extract_best_substitute(response: str) -> str | None:
+    """Extract the Best Substitute name for repetition checking."""
+    match = re.search(r"### Best Substitute\s*\n\*\*(.+?)\*\*", response)
+    return match.group(1).strip() if match else None
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -214,12 +244,12 @@ def main():
     meta         = data["metadata"]
     ground_truth = load_ground_truth()
 
-    print(f"\n🔍 Error Analysis — {results_file.name}")
+    print(f"\n🔍 Substitution Error Analysis — {results_file.name}")
     print(f"   CSV: {meta.get('csv', 'unknown')} | Model: {meta['model']} | Total: {meta['total']}")
     print("=" * 70)
 
-    all_issues   = []
-    recipe_names = []
+    all_issues      = []
+    substitute_names = []
 
     for r in results:
         id_      = int(r["id"])
@@ -228,53 +258,38 @@ def main():
         dims     = r.get("dimensions", {})
         issues   = []
 
-        # Determine label for display
         label = (
-            dims.get("cuisine_type") or
-            dims.get("meal_type") or
-            r.get("category", "General")
+            dims.get("ingredient_type") or
+            dims.get("dietary_restriction") or
+            "General"
         )
 
-        # 1. Format compliance (all except safety query)
-        is_safety = "bleach" in query.lower() or "unsafe" in query.lower()
-        if not is_safety:
-            issues.extend(check_format(response))
+        # 1. Format compliance
+        issues.extend(check_format(response))
 
-        # 2. Safety compliance
-        if is_safety:
-            if not check_safety(response):
-                issues.append("Safety FAIL: provided a recipe for an unsafe request")
+        # 2. Ratio presence
+        issues.extend(check_ratio(response))
 
-        # 3. Dietary restriction compliance
+        # 3. Alternative count
+        issues.extend(check_alternative_count(response))
+
+        # 4. Dietary restriction compliance
         dietary = dims.get("dietary_restriction", "")
         if dietary and dietary in DIETARY_FORBIDDEN:
             issues.extend(check_dietary(response, dietary))
 
-        # 4. Skill level compliance
-        skill = dims.get("skill_level", "")
-        if skill:
-            issues.extend(check_skill_level(response, skill))
-
-        # 5. Cuisine compliance
-        cuisine = dims.get("cuisine_type", "")
-        if cuisine:
-            issues.extend(check_cuisine(response, cuisine))
-
-        # 6. Serving size — if query mentions large group
-        if "10 people" in query or "family" in query.lower():
-            if not check_serving_size(response, 10):
-                issues.append("Serving size FAIL: expected 10+ servings not found")
-
-        # 7. Track recipe names for repetition
-        name = extract_recipe_name(response)
+        # 5. Track best substitute for repetition check
+        name = extract_best_substitute(response)
         if name:
-            recipe_names.append((id_, name))
+            substitute_names.append((id_, name))
 
         # Report
-        status = "✅ PASS" if not issues else "⚠️  ISSUES"
-        dim_str = " | ".join(f"{k.replace('_',' ').title()}: {v}"
-                             for k, v in dims.items()
-                             if k not in ("realistic", "note") and v)
+        status  = "✅ PASS" if not issues else "⚠️  ISSUES"
+        dim_str = " | ".join(
+            f"{k.replace('_', ' ').title()}: {v}"
+            for k, v in dims.items()
+            if k not in ("realistic", "note") and v and v != "None"
+        )
         print(f"\n[{id_:02d}] {status} | {label}")
         if dim_str:
             print(f"     Dims : {dim_str}")
@@ -287,19 +302,19 @@ def main():
 
         all_issues.extend([(id_, iss) for iss in issues])
 
-    # Recipe repetition check
+    # Repetition check
     print(f"\n{'=' * 70}")
-    print("📋 Recipe Repetition Check")
+    print("📋 Substitute Repetition Check")
     seen = {}
-    for rid, name in recipe_names:
+    for rid, name in substitute_names:
         seen.setdefault(name.lower(), []).append(rid)
     duplicates = {k: v for k, v in seen.items() if len(v) > 1}
     if duplicates:
         for name, ids in duplicates.items():
-            print(f"  ⚠️  '{name}' — IDs: {ids}")
-            all_issues.append((ids[0], f"Duplicate recipe: '{name}'"))
+            print(f"  ⚠️  '{name}' suggested for IDs: {ids}")
+            all_issues.append((ids[0], f"Duplicate substitute: '{name}'"))
     else:
-        print("  ✅ No duplicate recipe names found")
+        print("  ✅ No duplicate substitutes found")
 
     # Failure taxonomy
     print(f"\n{'=' * 70}")
@@ -322,17 +337,17 @@ def main():
     print(f"   Affected IDs   : {sorted(set(i for i, _ in all_issues))}")
     print(f"   Clean responses: {len(results) - len(set(i for i, _ in all_issues))}")
 
-    # TPR / TNR calculation from ground truth
+    # TPR / TNR from ground truth
     if ground_truth:
         tp = sum(1 for row in ground_truth.values() if row["label"] == "TP")
         fp = sum(1 for row in ground_truth.values() if row["label"] == "FP")
         tn = sum(1 for row in ground_truth.values() if row["label"] == "TN")
         fn = sum(1 for row in ground_truth.values() if row["label"] == "FN")
 
-        tpr = tp / (tp + fn) if (tp + fn) > 0 else 0.0  # sensitivity / recall
-        tnr = tn / (tn + fp) if (tn + fp) > 0 else 0.0  # specificity
-        fpr = fp / (fp + tn) if (fp + tn) > 0 else 0.0  # false alarm rate
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        tpr       = tp / (tp + fn)   if (tp + fn) > 0 else 0.0
+        tnr       = tn / (tn + fp)   if (tn + fp) > 0 else 0.0
+        fpr       = fp / (fp + tn)   if (fp + tn) > 0 else 0.0
+        precision = tp / (tp + fp)   if (tp + fp) > 0 else 0.0
 
         print(f"\n{'=' * 70}")
         print(f"📐 Confusion Matrix (from ground_truth.csv)")
@@ -340,12 +355,11 @@ def main():
         print(f"   FP (false alarms)           : {fp:>3}")
         print(f"   TN (correctly cleared)      : {tn:>3}")
         print(f"   FN (missed real failures)   : {fn:>3}")
-
         print(f"\n📈 Checker Performance Metrics")
-        print(f"   TPR  (True Positive Rate / Recall)  : {tpr:.1%}  ← of real failures, how many caught?")
-        print(f"   TNR  (True Negative Rate / Specificity): {tnr:.1%}  ← of real passes, how many cleared correctly?")
-        print(f"   FPR  (False Positive Rate)          : {fpr:.1%}  ← false alarm rate")
-        print(f"   Precision                           : {precision:.1%}  ← of flagged, how many were real?")
+        print(f"   TPR  (Recall)      : {tpr:.1%}  ← of real failures, how many caught?")
+        print(f"   TNR  (Specificity) : {tnr:.1%}  ← of real passes, how many cleared?")
+        print(f"   FPR               : {fpr:.1%}  ← false alarm rate")
+        print(f"   Precision         : {precision:.1%}  ← of flagged, how many were real?")
 
         print(f"\n💡 Interpretation")
         if tpr == 1.0:
@@ -353,13 +367,12 @@ def main():
         elif tpr >= 0.8:
             print(f"   ✅ TPR={tpr:.0%} — checker catches most real failures")
         else:
-            print(f"   ⚠️  TPR={tpr:.0%} — checker misses too many real failures (high FN)")
+            print(f"   ⚠️  TPR={tpr:.0%} — checker misses too many real failures")
 
         if tnr >= 0.8:
             print(f"   ✅ TNR={tnr:.0%} — checker rarely raises false alarms")
         else:
             print(f"   ⚠️  TNR={tnr:.0%} — checker raises too many false alarms (high FP)")
-            print(f"   💡 Tip: Improve keyword matching (e.g. 'peanut butter' ≠ 'butter')")
     print()
 
 

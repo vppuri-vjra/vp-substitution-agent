@@ -1,0 +1,21 @@
+id,label,checker_flags,human_verdict,notes
+1,TN,,PASS,Clean pass
+2,TN,,PASS,V1 FP fixed in V2 — ratio pattern now matches 'tablespoon'; 'egg' stripped by denominator masking
+3,TN,,PASS,V1 FP fixed in V3 — 'heavy cream' added to safe compounds; 'cheese substitutes' added
+4,TN,,PASS,V1 FP fixed in V3 — 'all-purpose flour' and 'wheat-based' added to Gluten-free safe compounds
+5,FP,Vegan violation (honey),PASS,"'honey' in Notes comparison text — checker sees 'thinner than honey', 'mouthfeel to honey' as violations"
+6,TN,,PASS,Clean pass
+7,FP,"Gluten-free violation (wheat, soy sauce)",PASS,"'wheat' in Notes warning text; 'a Japanese soy sauce' describes tamari — not a gluten recommendation"
+8,FP,Nut-free violation (almond),PASS,"'almond' in 'Almond Flour' Alternative (nut-free only applies to best substitute; alternative warns nut allergy)"
+9,TN,,PASS,V1 FP fixed in V3 — 'per 1 cup buttermilk' stripped by denominator masking
+10,TN,,PASS,V1 FP fixed in V2 — ratio pattern now matches 'tablespoons per tablespoon'
+11,FP,"Vegan violation (cream, gelatin)",PASS,"'cream' appears in truncated notes text; 'gelatin' in 'unlike gelatin' comparison — both are original refs"
+12,FP,Dairy-free violation (parmesan),PASS,"'parmesan' in '3 tablespoons per ¼ cup grated parmesan' — ratio denominator with unicode fraction not stripped"
+13,TN,,PASS,Clean pass
+14,TN,,PASS,Clean pass
+15,TN,,PASS,Clean pass
+16,TN,,PASS,Clean pass
+17,FP,Dairy-free violation (milk),PASS,"'milk' in 'same amount as milk' — stripped comparison still leaves 'almond milk' context text with 'milk'"
+18,FP,Gluten-free violation (breadcrumbs),PASS,"'breadcrumbs' in 'similarly to breadcrumbs' comparison — not a ratio denominator so not stripped"
+19,TN,,PASS,Clean pass
+20,FP,"Dairy-free violation (cream, cheese)",PASS,"'dairy-free cream cheeses' (plural) — singular safe compound doesn't mask plural form; checker hits"
