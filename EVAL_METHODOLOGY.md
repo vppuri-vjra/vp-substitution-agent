@@ -18,20 +18,20 @@
 
 ## End-to-End Eval Steps
 
-| Step | Task | Deliverable | Grounded Theory Stage | Purpose |
-|------|------|------------|----------------------|---------|
-| 1 | Write system prompt | `prompts/system_prompt.txt` | — | Bridge Gulf of Specification — tell model Role, Rules, Agency, Format + worked example |
-| 2 | Design test queries | `data/substitution_queries.csv` | — | Bridge Gulf of Generalization — 20 queries across 4 dimensions, including edge cases |
-| 3 | Write course docs | `SubEval_Trace.docx`, `SubEval_BigPicture.docx`, `SubEval_GroundedTheory.docx` | — | Document methodology (Trace definition, 3 Gulfs, Grounded Theory coding plan) |
-| 4 | Run bulk test | `results/results_20260419_150510.json` | — | Send all 20 queries through Claude API, collect raw responses |
-| 5 | Build HTML viewer | `results/*.html` | — | Bridge Gulf of Comprehension — browse all responses with dimension badges and dietary filter |
-| 6 | Automated checking | `scripts/error_analysis.py` | 🔵 Open Coding | First pass — flag potential failures, surface raw observations per response |
-| 7 | Human review | `data/ground_truth.csv` | 🔵 Open Coding | Read each flagged response, note what went wrong and why — raw observations |
-| 8 | Compute metrics | `results/analysis_summary.md` | 🔵 Open Coding | Quantify raw observations — how many flags, what types, which IDs |
-| 9 | Build failure taxonomy | `failure_taxonomy.md` | 🟡 Axial Coding | Group raw observations into named categories: FM-01..FM-06, CB-01..CB-03 |
-| 10 | Grounded theory coding | `SubEval_GroundedTheory.docx` (filled) | 🔴 Selective Coding | Identify core category — CB-01 (original ingredient false flag) as dominant failure |
-| 11 | Iterate checker | `scripts/error_analysis.py` V1→V4 | — | Fix root cause, re-run, compare before/after metrics (TNR 35% → 100%) |
-| 12 | Wrap-up doc | `EVAL_METHODOLOGY.md` (this file) | — | Capture full methodology as a reusable reference |
+| Step | Part | Purpose | What | Grounded Theory Stage | Status | Location |
+|------|------|---------|------|-----------------------|--------|----------|
+| 1 | Part 1 | Define how the bot should behave | Write system prompt — 4 sections + worked example | — | ✅ Done | `prompts/system_prompt.txt` / GitHub |
+| 2 | Part 2 | Create diverse inputs to stress-test the bot | Create 20 test queries across 4 dimensions | — | ✅ Done | `data/substitution_queries.csv` / GitHub |
+| 3 | Part 2 | Record the methodology before running tests | Document 6 stages, 3 Gulfs, trace structure | — | ✅ Done | `SubEval_*.docx` / Downloads → Drive |
+| 4 | Part 3 | Collect raw model responses at scale | Run bulk test — 20 queries → JSON results | — | ✅ Done | `results/results_20260419_150510.json` / GitHub |
+| 5 | Part 3 | Browse responses without touching raw JSON | Generate HTML viewer with dimension badges + dietary filter | — | ✅ Done | `results/*.html` / local |
+| 6 | Part 3 | Automatically flag potential failures | Run V4 rule-based checker on each response | 🔵 Open Coding | ✅ Done | `scripts/error_analysis.py` / GitHub |
+| 7 | Part 3 | Separate real failures from checker mistakes | Human review → label TP / FP / TN / FN | 🔵 Open Coding | ✅ Done | `data/ground_truth.csv` / GitHub |
+| 8 | Part 3 | Quantify how good the checker is | Compute TPR, TNR, Precision, FPR | 🔵 Open Coding | ✅ Done | `results/analysis_summary.md` / GitHub |
+| 9 | Part 3 | Name and categorize what goes wrong | Build failure taxonomy — FM-01..FM-06, CB-01..CB-03 | 🟡 Axial Coding | ✅ Done | `failure_taxonomy.md` / GitHub |
+| 10 | Part 3 | Apply grounded theory to the findings | Open → Axial → Selective coding — identify CB-01 as core failure | 🔴 Selective Coding | ✅ Done | `SubEval_GroundedTheory.docx` / Downloads |
+| 11 | Stage 6 | Prove the improvement with data | Fix checker V1→V4, re-run, compare before/after — TNR 35%→100% | — | ✅ Done | `scripts/error_analysis.py` / GitHub |
+| 12 | Stage 6 | Capture full methodology as reusable reference | Wrap-up doc — overall logical flow of eval | — | ✅ Done | `EVAL_METHODOLOGY.md` / GitHub |
 
 ---
 
