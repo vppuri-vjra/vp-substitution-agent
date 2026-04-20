@@ -18,20 +18,20 @@
 
 ## End-to-End Eval Steps
 
-| Step | Task | Deliverable | Purpose |
-|------|------|------------|---------|
-| 1 | Write system prompt | `prompts/system_prompt.txt` | Bridge Gulf of Specification — tell model Role, Rules, Agency, Format + worked example |
-| 2 | Design test queries | `data/substitution_queries.csv` | Bridge Gulf of Generalization — 20 queries across 4 dimensions, including edge cases |
-| 3 | Write course docs | `SubEval_Trace.docx`, `SubEval_BigPicture.docx`, `SubEval_GroundedTheory.docx` | Document methodology (Trace definition, 3 Gulfs, Grounded Theory coding plan) |
-| 4 | Run bulk test | `results/results_20260419_150510.json` | Send all 20 queries through Claude API, collect responses |
-| 5 | Build HTML viewer | `results/*.html` | Bridge Gulf of Comprehension — browse all responses with dimension badges and dietary filter |
-| 6 | Automated checking | `scripts/error_analysis.py` | Flag potential failures: format, ratio, dietary compliance, alternative count, repetition |
-| 7 | Human review | `data/ground_truth.csv` | Label each flag as TP / FP / TN / FN — establish ground truth |
-| 8 | Compute metrics | `results/analysis_summary.md` | Confusion matrix → TPR, TNR, FPR, Precision |
-| 9 | Build failure taxonomy | `failure_taxonomy.md` | Name and categorize failure patterns (model FM-01..FM-06, checker CB-01..CB-03) |
-| 10 | Grounded theory coding | `SubEval_GroundedTheory.docx` (filled) | Open → Axial → Selective coding on actual findings |
-| 11 | Iterate checker | `scripts/error_analysis.py` V1→V4 | Fix root cause, re-run, compare before/after metrics |
-| 12 | Wrap-up doc | `EVAL_METHODOLOGY.md` (this file) | Capture full methodology as a reusable reference |
+| Step | Task | Deliverable | Grounded Theory Stage | Purpose |
+|------|------|------------|----------------------|---------|
+| 1 | Write system prompt | `prompts/system_prompt.txt` | — | Bridge Gulf of Specification — tell model Role, Rules, Agency, Format + worked example |
+| 2 | Design test queries | `data/substitution_queries.csv` | — | Bridge Gulf of Generalization — 20 queries across 4 dimensions, including edge cases |
+| 3 | Write course docs | `SubEval_Trace.docx`, `SubEval_BigPicture.docx`, `SubEval_GroundedTheory.docx` | — | Document methodology (Trace definition, 3 Gulfs, Grounded Theory coding plan) |
+| 4 | Run bulk test | `results/results_20260419_150510.json` | — | Send all 20 queries through Claude API, collect raw responses |
+| 5 | Build HTML viewer | `results/*.html` | — | Bridge Gulf of Comprehension — browse all responses with dimension badges and dietary filter |
+| 6 | Automated checking | `scripts/error_analysis.py` | 🔵 Open Coding | First pass — flag potential failures, surface raw observations per response |
+| 7 | Human review | `data/ground_truth.csv` | 🔵 Open Coding | Read each flagged response, note what went wrong and why — raw observations |
+| 8 | Compute metrics | `results/analysis_summary.md` | 🔵 Open Coding | Quantify raw observations — how many flags, what types, which IDs |
+| 9 | Build failure taxonomy | `failure_taxonomy.md` | 🟡 Axial Coding | Group raw observations into named categories: FM-01..FM-06, CB-01..CB-03 |
+| 10 | Grounded theory coding | `SubEval_GroundedTheory.docx` (filled) | 🔴 Selective Coding | Identify core category — CB-01 (original ingredient false flag) as dominant failure |
+| 11 | Iterate checker | `scripts/error_analysis.py` V1→V4 | — | Fix root cause, re-run, compare before/after metrics (TNR 35% → 100%) |
+| 12 | Wrap-up doc | `EVAL_METHODOLOGY.md` (this file) | — | Capture full methodology as a reusable reference |
 
 ---
 
