@@ -101,17 +101,80 @@
 
 ---
 
+## Two-Layer Evaluation Pattern
+
+A production eval system uses two layers — rule-based first, LLM-judge second.
+
+```
+Layer 1 — Rule-based (always runs)
+    → Fast, free, catches obvious failures
+    → Flags anything suspicious
+
+Layer 2 — LLM-judge (runs after)
+    → Reviews what rule-based flags
+    → Catches what rules missed
+    → Explains why something failed
+```
+
+### When to move from rule-based to LLM-judge
+
+| Signal | What it means |
+|---|---|
+| Still seeing false positives after 2-3 iterations | Failure is meaning-based — rules can't fix it |
+| V3+ and still chasing edge cases | Playing whack-a-mole — time to switch |
+| Bug requires understanding context | Regex will never get there |
+| Can't write a rule without breaking something else | Too many interdependencies |
+
+### Rule-based vs LLM-judge — when to use each
+
+| | Rule-based | LLM-judge |
+|---|---|---|
+| Cost | Free | API call per response |
+| Speed | Instant | 3-5 seconds per response |
+| At scale (10,000+ responses) | Cheap | Expensive |
+| Consistency | Always same result | May vary slightly |
+| Catches nuance | ❌ | ✅ |
+| Explains failures | ❌ | ✅ |
+| Best for | CI/CD pipelines, high volume | Edge cases, spot checks, where rules fail |
+
+### Industry pattern
+> Rule-based catches 90% of issues cheaply and fast.
+> LLM-judge reviews flagged responses and edge cases the rules miss.
+> Use both — not one or the other.
+
+---
+
+## LLM-as-Judge Results
+
+**Judge prompt:** `prompts/judge_prompt.txt`  
+**Script:** `scripts/llm_judge.py`  
+**Criteria evaluated:** DIETARY, RATIO, ALTERNATIVES, FORMAT  
+
+| Metric | Value |
+|---|---|
+| Judge Agreement Rate | **100% (20/20)** |
+| Disagreements | 0 |
+| Iterations needed | 1 (vs V1→V4 for rule-based) |
+
+**Key finding:** LLM-judge achieved 100% agreement with human labels on the first attempt — no iteration needed — because Claude understands meaning rather than matching patterns.
+
+---
+
 ## Files on GitHub
 
 | File | What it is |
 |------|-----------|
 | `prompts/system_prompt.txt` | System prompt for the substitution bot |
+| `prompts/judge_prompt.txt` | LLM-as-judge evaluation prompt |
 | `data/substitution_queries.csv` | 20 test queries with dimension labels |
 | `data/ground_truth.csv` | Human-reviewed labels (V4 — 20 TN) |
 | `scripts/bulk_test.py` | Runs queries through Claude API |
 | `scripts/error_analysis.py` | V4 automated checker |
+| `scripts/llm_judge.py` | LLM-as-judge evaluator |
 | `scripts/generate_viewer.py` | HTML viewer generator |
 | `results/results_20260419_150510.json` | Raw bulk test output (20 responses) |
+| `results/judge_results_20260422_090125.json` | LLM-judge scores for all 20 responses |
+| `results/judge_vs_human.csv` | Judge scores vs human ground truth |
 | `results/analysis_summary.md` | Metrics, confusion matrix, iteration history |
 | `failure_taxonomy.md` | FM-01..FM-06 + CB-01..CB-03 taxonomy |
 | `EVAL_METHODOLOGY.md` | This file — full methodology reference |
