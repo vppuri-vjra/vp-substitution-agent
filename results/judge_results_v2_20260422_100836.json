@@ -1,0 +1,673 @@
+{
+  "metadata": {
+    "timestamp": "20260422_100836",
+    "model": "claude-opus-4-5",
+    "total": 20,
+    "scored": 20,
+    "agree": 20,
+    "disagree": 0,
+    "agreement_rate": "100.0%"
+  },
+  "results": [
+    {
+      "id": "1",
+      "query": "I'm out of butter for my chocolate chip cookies — what can I use instead?",
+      "dietary": "None",
+      "original": "Butter",
+      "status": "success",
+      "duration_ms": 3482,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the substitutes offered (coconut oil, vegetable/canola oil, applesauce) are all appropriate general alternatives to butter."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies a 1:1 ratio (1 cup coconut oil per 1 cup butter)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: Vegetable/Canola Oil and Unsweetened Applesauce + Oil."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly 2 alternatives, and proper formatting."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the substitutes offered (coconut oil, vegetable/canola oil, applesauce) are all appropriate general alternatives to butter.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies a 1:1 ratio (1 cup coconut oil per 1 cup butter).\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: Vegetable/Canola Oil and Unsweetened Applesauce + Oil.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly 2 alternatives, and proper formatting."
+    },
+    {
+      "id": "2",
+      "query": "What can I substitute for eggs in a vegan banana bread?",
+      "dietary": "Vegan",
+      "original": "Eggs",
+      "status": "success",
+      "duration_ms": 3637,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All substitutes (flax eggs, mashed banana, unsweetened applesauce) are plant-based and appropriate for a vegan diet."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies \"1 tablespoon ground flaxseed + 3 tablespoons water per 1 egg.\""
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: mashed ripe banana and unsweetened applesauce."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish (\"Binder and moisture retention\"), Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides vegan-appropriate egg substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All substitutes (flax eggs, mashed banana, unsweetened applesauce) are plant-based and appropriate for a vegan diet.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies \"1 tablespoon ground flaxseed + 3 tablespoons water per 1 egg.\"\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: mashed ripe banana and unsweetened applesauce.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish (\"Binder and moisture retention\"), Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides vegan-appropriate egg substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "3",
+      "query": "I need a dairy-free substitute for heavy cream in my pasta sauce",
+      "dietary": "Dairy-free",
+      "original": "Heavy Cream",
+      "status": "success",
+      "duration_ms": 4669,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (coconut cream, cashew cream, and oat cream) are dairy-free and appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies \"1 cup coconut cream per 1 cup heavy cream\" as the substitution ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 numbered alternatives: cashew cream and oat cream."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides dairy-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (coconut cream, cashew cream, and oat cream) are dairy-free and appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies \"1 cup coconut cream per 1 cup heavy cream\" as the substitution ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 numbered alternatives: cashew cream and oat cream.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides dairy-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "4",
+      "query": "Can I replace all-purpose flour with something gluten-free in my pancakes?",
+      "dietary": "Gluten-free",
+      "original": "All-Purpose Flour",
+      "status": "success",
+      "duration_ms": 4003,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (GF flour blends, oat flour with certified GF note, buckwheat flour with tapioca starch) are gluten-free and appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies \"1 cup GF blend per 1 cup AP flour\" as the ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 numbered alternatives: Oat Flour and Buckwheat Flour."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response provides appropriate gluten-free substitutes with clear ratios, exactly two alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (GF flour blends, oat flour with certified GF note, buckwheat flour with tapioca starch) are gluten-free and appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies \"1 cup GF blend per 1 cup AP flour\" as the ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 numbered alternatives: Oat Flour and Buckwheat Flour.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response provides appropriate gluten-free substitutes with clear ratios, exactly two alternatives, and all required formatting sections."
+    },
+    {
+      "id": "5",
+      "query": "What's a good substitute for honey in a vegan salad dressing?",
+      "dietary": "Vegan",
+      "original": "Honey",
+      "status": "success",
+      "duration_ms": 3699,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— Maple syrup is a plant-based sweetener and is appropriate for a vegan diet."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The response clearly specifies a 1:1 ratio (1 tablespoon maple syrup per 1 tablespoon honey)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 alternatives: Agave Nectar and Date Syrup."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly recommends vegan-appropriate substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — Maple syrup is a plant-based sweetener and is appropriate for a vegan diet.\n\nCriteria 2 RATIO: PASS — The response clearly specifies a 1:1 ratio (1 tablespoon maple syrup per 1 tablespoon honey).\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 alternatives: Agave Nectar and Date Syrup.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly recommends vegan-appropriate substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "6",
+      "query": "I don't have baking powder — what can I use in my muffins?",
+      "dietary": "None",
+      "original": "Baking Powder",
+      "status": "success",
+      "duration_ms": 5598,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the suggested substitutes (baking soda, cream of tartar, buttermilk, self-rising flour) are all common pantry items with no restrictions to violate."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies \"¼ tsp baking soda + ½ tsp cream of tartar per 1 tsp baking powder,\" which is a clear quantity ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section contains exactly 2 numbered items: Baking Soda + Acidic Liquid and Self-Rising Flour."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: \"Role in dish\" (Leavening agent), \"Best Substitute,\" \"Alternatives,\" and \"Notes.\""
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses the substitution query with appropriate ratios, exactly two alternatives, proper formatting, and no dietary concerns to violate."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the suggested substitutes (baking soda, cream of tartar, buttermilk, self-rising flour) are all common pantry items with no restrictions to violate.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies \"¼ tsp baking soda + ½ tsp cream of tartar per 1 tsp baking powder,\" which is a clear quantity ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section contains exactly 2 numbered items: Baking Soda + Acidic Liquid and Self-Rising Flour.\n\nCriteria 4 FORMAT: PASS — All required sections are present: \"Role in dish\" (Leavening agent), \"Best Substitute,\" \"Alternatives,\" and \"Notes.\"\n\nOverall: PASS\nOverall reason: The response correctly addresses the substitution query with appropriate ratios, exactly two alternatives, proper formatting, and no dietary concerns to violate."
+    },
+    {
+      "id": "7",
+      "query": "What can I use instead of soy sauce for someone with a gluten intolerance?",
+      "dietary": "Gluten-free",
+      "original": "Soy Sauce",
+      "status": "success",
+      "duration_ms": 3718,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (gluten-free tamari, coconut aminos, and liquid aminos) are appropriate for gluten intolerance, with proper warnings to verify gluten-free labeling."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio for tamari."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: coconut aminos and liquid aminos (Bragg's)."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses gluten-free substitutes for soy sauce with proper ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (gluten-free tamari, coconut aminos, and liquid aminos) are appropriate for gluten intolerance, with proper warnings to verify gluten-free labeling.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio for tamari.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: coconut aminos and liquid aminos (Bragg's).\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses gluten-free substitutes for soy sauce with proper ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "8",
+      "query": "I need a nut-free substitute for almond flour in my keto brownies?",
+      "dietary": "Nut-free",
+      "original": "Almond Flour",
+      "status": "success",
+      "duration_ms": 4796,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (sunflower seed flour, coconut flour, and ground pumpkin seeds) are nut-free and appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio (1 cup sunflower seed flour per 1 cup almond flour)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 numbered alternatives: coconut flour and ground pumpkin seeds (pepita flour)."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response provides appropriate nut-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (sunflower seed flour, coconut flour, and ground pumpkin seeds) are nut-free and appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio (1 cup sunflower seed flour per 1 cup almond flour).\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 numbered alternatives: coconut flour and ground pumpkin seeds (pepita flour).\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response provides appropriate nut-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "9",
+      "query": "What can replace buttermilk in a dairy-free fried chicken marinade?",
+      "dietary": "Dairy-free",
+      "original": "Buttermilk",
+      "status": "success",
+      "duration_ms": 4405,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (coconut milk, oat milk, soy milk with vinegar/lemon juice) are dairy-free and appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies \"1 cup coconut milk + 1 tablespoon vinegar per 1 cup buttermilk\" which is a clear ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: unsweetened oat milk + lemon juice and unsweetened soy milk + white vinegar."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses the dairy-free requirement with appropriate plant-based substitutes, includes clear ratios, provides exactly 2 alternatives, and follows the required format structure."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (coconut milk, oat milk, soy milk with vinegar/lemon juice) are dairy-free and appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies \"1 cup coconut milk + 1 tablespoon vinegar per 1 cup buttermilk\" which is a clear ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: unsweetened oat milk + lemon juice and unsweetened soy milk + white vinegar.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses the dairy-free requirement with appropriate plant-based substitutes, includes clear ratios, provides exactly 2 alternatives, and follows the required format structure."
+    },
+    {
+      "id": "10",
+      "query": "I have no cornstarch — what can I use to thicken my stir-fry sauce?",
+      "dietary": "None",
+      "original": "Cornstarch",
+      "status": "success",
+      "duration_ms": 4271,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and all suggested substitutes (flour, arrowroot powder, potato starch) are appropriate general-purpose thickeners."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies \"2 tablespoons flour per 1 tablespoon cornstarch\" as the ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 numbered alternatives: Arrowroot Powder and Potato Starch."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes (marked with ⚠️)."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses all criteria with appropriate substitutes, clear ratios, exactly two alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and all suggested substitutes (flour, arrowroot powder, potato starch) are appropriate general-purpose thickeners.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies \"2 tablespoons flour per 1 tablespoon cornstarch\" as the ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 numbered alternatives: Arrowroot Powder and Potato Starch.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes (marked with ⚠️).\n\nOverall: PASS\nOverall reason: The response correctly addresses all criteria with appropriate substitutes, clear ratios, exactly two alternatives, and all required formatting sections."
+    },
+    {
+      "id": "11",
+      "query": "What's a vegan substitute for gelatin in my panna cotta?",
+      "dietary": "Vegan",
+      "original": "Gelatin",
+      "status": "success",
+      "duration_ms": 3918,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— Agar-agar is derived from seaweed and is completely vegan, making it an appropriate substitute for gelatin."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The response specifies \"¾ teaspoon agar powder per 1 teaspoon gelatin powder (or 1 tablespoon agar flakes per 1 teaspoon gelatin).\""
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 alternatives: Carrageenan and Coconut cream + cornstarch blend."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides a vegan substitute for gelatin with clear ratios, two appropriate alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — Agar-agar is derived from seaweed and is completely vegan, making it an appropriate substitute for gelatin.\n\nCriteria 2 RATIO: PASS — The response specifies \"¾ teaspoon agar powder per 1 teaspoon gelatin powder (or 1 tablespoon agar flakes per 1 teaspoon gelatin).\"\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 alternatives: Carrageenan and Coconut cream + cornstarch blend.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides a vegan substitute for gelatin with clear ratios, two appropriate alternatives, and all required formatting sections."
+    },
+    {
+      "id": "12",
+      "query": "Can I substitute something for parmesan in a dairy-free risotto?",
+      "dietary": "Dairy-free",
+      "original": "Parmesan",
+      "status": "success",
+      "duration_ms": 3768,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— Nutritional yeast, dairy-free parmesan alternatives, and miso paste are all dairy-free options appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies \"3 tablespoons per 1 oz (28g) parmesan\" which is a clear quantity ratio."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: Dairy-Free Parmesan and White Miso Paste + Nutritional Yeast."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides dairy-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — Nutritional yeast, dairy-free parmesan alternatives, and miso paste are all dairy-free options appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies \"3 tablespoons per 1 oz (28g) parmesan\" which is a clear quantity ratio.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: Dairy-Free Parmesan and White Miso Paste + Nutritional Yeast.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides dairy-free substitutes with clear ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "13",
+      "query": "What can I use instead of white wine in my mushroom risotto?",
+      "dietary": "None",
+      "original": "White Wine",
+      "status": "success",
+      "duration_ms": 4490,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the substitutes offered (dry vermouth, broth with lemon juice, vinegar with broth) are all reasonable culinary alternatives."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio for dry vermouth."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: chicken/vegetable broth + lemon juice, and white wine vinegar + broth."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly two alternatives, and proper formatting."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the substitutes offered (dry vermouth, broth with lemon juice, vinegar with broth) are all reasonable culinary alternatives.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio for dry vermouth.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: chicken/vegetable broth + lemon juice, and white wine vinegar + broth.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly two alternatives, and proper formatting."
+    },
+    {
+      "id": "14",
+      "query": "I need an egg substitute for coating chicken before frying",
+      "dietary": "None",
+      "original": "Eggs",
+      "status": "success",
+      "duration_ms": 4566,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the buttermilk substitute is appropriate for general use as an egg replacement for coating."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The response specifies \"approximately ½ to 1 cup per pound of chicken\" for the buttermilk substitute."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: plain yogurt (thinned with milk) and heavy cream or whole milk."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish (Binder), Best Substitute (Buttermilk), Alternatives (2 listed), and Notes (with texture change and dairy-free information)."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses all evaluation criteria with appropriate substitute, clear ratios, exactly 2 alternatives, and proper formatting."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the buttermilk substitute is appropriate for general use as an egg replacement for coating.\n\nCriteria 2 RATIO: PASS — The response specifies \"approximately ½ to 1 cup per pound of chicken\" for the buttermilk substitute.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: plain yogurt (thinned with milk) and heavy cream or whole milk.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish (Binder), Best Substitute (Buttermilk), Alternatives (2 listed), and Notes (with texture change and dairy-free information).\n\nOverall: PASS\nOverall reason: The response correctly addresses all evaluation criteria with appropriate substitute, clear ratios, exactly 2 alternatives, and proper formatting."
+    },
+    {
+      "id": "15",
+      "query": "What's a substitute for sugar in a keto chocolate cake?",
+      "dietary": "None",
+      "original": "Sugar",
+      "status": "success",
+      "duration_ms": 3831,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the keto-friendly substitutes recommended (allulose, erythritol/monk fruit blend, pure erythritol) are all appropriate for a keto diet as requested in the query."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio (1 cup allulose per 1 cup sugar)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 alternatives: Erythritol/Monk Fruit Blend and Pure Erythritol."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses the keto chocolate cake context with appropriate sugar substitutes, clear ratios, exactly two alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the keto-friendly substitutes recommended (allulose, erythritol/monk fruit blend, pure erythritol) are all appropriate for a keto diet as requested in the query.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio (1 cup allulose per 1 cup sugar).\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 alternatives: Erythritol/Monk Fruit Blend and Pure Erythritol.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses the keto chocolate cake context with appropriate sugar substitutes, clear ratios, exactly two alternatives, and all required formatting sections."
+    },
+    {
+      "id": "16",
+      "query": "I ran out of olive oil for sautéing vegetables — what works?",
+      "dietary": "None",
+      "original": "Olive Oil",
+      "status": "success",
+      "duration_ms": 3835,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— No dietary restriction was specified, and the recommended substitute (avocado oil) is a standard cooking oil appropriate for general use."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio for avocado oil."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives: Butter (or Ghee) and Vegetable or Canola Oil."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly two alternatives, and proper formatting."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — No dietary restriction was specified, and the recommended substitute (avocado oil) is a standard cooking oil appropriate for general use.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio for avocado oil.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives: Butter (or Ghee) and Vegetable or Canola Oil.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses all evaluation criteria with appropriate substitutes, clear ratios, exactly two alternatives, and proper formatting."
+    },
+    {
+      "id": "17",
+      "query": "What can I use instead of milk in mashed potatoes for a dairy-free version?",
+      "dietary": "Dairy-free",
+      "original": "Milk",
+      "status": "success",
+      "duration_ms": 3567,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (unsweetened oat milk, full-fat coconut milk, unsweetened soy milk) are plant-based and dairy-free."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies a 1:1 ratio (use same amount as milk called for)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 alternatives: full-fat coconut milk and unsweetened soy milk."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides dairy-free milk substitutes with proper ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (unsweetened oat milk, full-fat coconut milk, unsweetened soy milk) are plant-based and dairy-free.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies a 1:1 ratio (use same amount as milk called for).\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 alternatives: full-fat coconut milk and unsweetened soy milk.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides dairy-free milk substitutes with proper ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "18",
+      "query": "I need something to replace breadcrumbs in meatballs for a gluten-free diet",
+      "dietary": "Gluten-free",
+      "original": "Breadcrumbs",
+      "status": "success",
+      "duration_ms": 4115,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (certified gluten-free rolled oats, almond flour, and gluten-free crackers/rice crumbs) are appropriate for a gluten-free diet, with proper warnings about certification for oats."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio (1 cup oats per 1 cup breadcrumbs)."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The Alternatives section lists exactly 2 numbered alternatives: Almond Flour and Crushed Gluten-Free Crackers or Rice Crumbs."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response provides accurate gluten-free substitutes with clear ratios, exactly two alternatives, and all required formatting sections with helpful additional context about cross-contamination and allergens."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (certified gluten-free rolled oats, almond flour, and gluten-free crackers/rice crumbs) are appropriate for a gluten-free diet, with proper warnings about certification for oats.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio (1 cup oats per 1 cup breadcrumbs).\n\nCriteria 3 ALTERNATIVES: PASS — The Alternatives section lists exactly 2 numbered alternatives: Almond Flour and Crushed Gluten-Free Crackers or Rice Crumbs.\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response provides accurate gluten-free substitutes with clear ratios, exactly two alternatives, and all required formatting sections with helpful additional context about cross-contamination and allergens."
+    },
+    {
+      "id": "19",
+      "query": "What's a substitute for mayonnaise in a vegan coleslaw?",
+      "dietary": "Vegan",
+      "original": "Mayonnaise",
+      "status": "success",
+      "duration_ms": 4000,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (vegan mayonnaise, cashew cream, coconut yogurt) are plant-based and appropriate for a vegan diet."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section clearly specifies a 1:1 ratio for vegan mayonnaise."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives (cashew cream and coconut yogurt)."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly addresses vegan dietary needs with appropriate plant-based substitutes, includes proper ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (vegan mayonnaise, cashew cream, coconut yogurt) are plant-based and appropriate for a vegan diet.\n\nCriteria 2 RATIO: PASS — The Best Substitute section clearly specifies a 1:1 ratio for vegan mayonnaise.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives (cashew cream and coconut yogurt).\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly addresses vegan dietary needs with appropriate plant-based substitutes, includes proper ratios, exactly 2 alternatives, and all required formatting sections."
+    },
+    {
+      "id": "20",
+      "query": "Can I replace cream cheese in my frosting with something dairy-free?",
+      "dietary": "Dairy-free",
+      "original": "Cream Cheese",
+      "status": "success",
+      "duration_ms": 3143,
+      "scores": {
+        "DIETARY": {
+          "result": "PASS",
+          "reason": "— All recommended substitutes (dairy-free cream cheese, coconut cream, silken tofu) are dairy-free and appropriate for the dietary restriction."
+        },
+        "RATIO": {
+          "result": "PASS",
+          "reason": "— The Best Substitute section specifies a 1:1 ratio for dairy-free cream cheese."
+        },
+        "ALTERNATIVES": {
+          "result": "PASS",
+          "reason": "— The response provides exactly 2 numbered alternatives (coconut cream and silken tofu)."
+        },
+        "FORMAT": {
+          "result": "PASS",
+          "reason": "— All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes."
+        },
+        "overall": {
+          "result": "PASS",
+          "reason": "The response correctly provides dairy-free substitutes with proper ratios, exactly 2 alternatives, and all required formatting sections."
+        }
+      },
+      "human_label": "PASS",
+      "agree": true,
+      "raw_output": "Criteria 1 DIETARY: PASS — All recommended substitutes (dairy-free cream cheese, coconut cream, silken tofu) are dairy-free and appropriate for the dietary restriction.\n\nCriteria 2 RATIO: PASS — The Best Substitute section specifies a 1:1 ratio for dairy-free cream cheese.\n\nCriteria 3 ALTERNATIVES: PASS — The response provides exactly 2 numbered alternatives (coconut cream and silken tofu).\n\nCriteria 4 FORMAT: PASS — All required sections are present: Role in dish, Best Substitute, Alternatives, and Notes.\n\nOverall: PASS\nOverall reason: The response correctly provides dairy-free substitutes with proper ratios, exactly 2 alternatives, and all required formatting sections."
+    }
+  ]
+}

@@ -5,17 +5,20 @@ Sends each bot response through Claude using judge_prompt.txt
 and scores it on 4 criteria: DIETARY, RATIO, ALTERNATIVES, FORMAT
 
 Usage:
-    uv run python scripts/llm_judge.py
+    python3 scripts/llm_judge.py                             # uses default results file
+    python3 scripts/llm_judge.py results/results_v1_XYZ.json  # judge a specific file
+    python3 scripts/llm_judge.py results/results_v2_XYZ.json  # judge Version B
 
 Output:
-    results/judge_results.json   — per-response scores + reasons
-    results/judge_vs_human.csv   — judge scores vs human ground truth
+    results/judge_results_<version>_<timestamp>.json  — per-response scores + reasons
+    results/judge_vs_human_<version>.csv              — judge scores vs human ground truth
 """
 
 import csv
 import json
 import os
 import re
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
@@ -31,10 +34,22 @@ MODEL      = "claude-opus-4-5"
 MAX_TOKENS = 512
 
 JUDGE_PROMPT_FILE  = ROOT / "prompts" / "judge_prompt.txt"
-RESULTS_FILE       = ROOT / "results" / "results_20260419_150510.json"
+DEFAULT_RESULTS    = ROOT / "results" / "results_20260419_150510.json"
 QUERIES_CSV        = ROOT / "data" / "substitution_queries.csv"
 GROUND_TRUTH_CSV   = ROOT / "data" / "ground_truth.csv"
 RESULTS_DIR        = ROOT / "results"
+
+# Accept optional results file as argument (for A/B testing)
+RESULTS_FILE = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_RESULTS
+if not RESULTS_FILE.is_absolute():
+    RESULTS_FILE = ROOT / RESULTS_FILE
+
+# Derive version label from filename (e.g. results_v1_... → v1, results_v2_... → v2)
+VERSION_LABEL = "default"
+for part in RESULTS_FILE.stem.split("_"):
+    if part.startswith("v") and part[1:].isdigit():
+        VERSION_LABEL = part
+        break
 
 CRITERIA = ["DIETARY", "RATIO", "ALTERNATIVES", "FORMAT"]
 
@@ -156,7 +171,9 @@ def main():
     total = len(results)
 
     print(f"\n⚖️  VP Substitution Agent — LLM-as-Judge")
-    print(f"   Model   : {MODEL}")
+    print(f"   Model    : {MODEL}")
+    print(f"   Version  : {VERSION_LABEL}")
+    print(f"   File     : {RESULTS_FILE.name}")
     print(f"   Responses: {total}")
     print(f"   Criteria : {', '.join(CRITERIA)}\n")
 
@@ -224,11 +241,11 @@ def main():
     }
 
     # ── Save judge_results.json ──────────────────────────────────────────────
-    judge_file = RESULTS_DIR / f"judge_results_{timestamp}.json"
+    judge_file = RESULTS_DIR / f"judge_results_{VERSION_LABEL}_{timestamp}.json"
     judge_file.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # ── Save judge_vs_human.csv ──────────────────────────────────────────────
-    csv_file = RESULTS_DIR / "judge_vs_human.csv"
+    csv_file = RESULTS_DIR / f"judge_vs_human_{VERSION_LABEL}.csv"
     with open(csv_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["id", "query", "dietary", "original",

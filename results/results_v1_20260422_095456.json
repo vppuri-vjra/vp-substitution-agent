@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "timestamp": "20260422_095456",
+    "version": "v1",
+    "label": "Version A — with worked example",
+    "model": "claude-opus-4-5",
+    "total": 20,
+    "success": 20,
+    "errors": 0
+  },
+  "results": [
+    {
+      "id": "1",
+      "query": "I'm out of butter for my chocolate chip cookies — what can I use instead?",
+      "dimensions": {
+        "ingredient_type": "Fat",
+        "cooking_method": "Baking",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 10363,
+      "response": "## Substituting Butter in Chocolate Chip Cookies\n\n**Role in dish:** Fat — provides moisture, richness, tenderness, and helps cookies spread while contributing to browning and flavor\n\n### Best Substitute\n**Coconut Oil (solid/refined)** — 1:1 ratio (1 cup coconut oil per 1 cup butter)\nCoconut oil has a similar fat content and solid-at-room-temperature texture, making it behave much like butter during creaming and baking. Refined coconut oil minimizes coconut flavor. Cookies may spread slightly more and have a subtly different richness.\n\n### Alternatives\n1. **Vegetable Oil** — ¾ cup per 1 cup butter — Produces chewier, denser cookies that spread less; lacks the \"creaming\" structure so skip that step and mix directly.\n2. **Unsweetened Applesauce + Oil combo** — ½ cup applesauce + ¼ cup oil per 1 cup butter — Significantly reduces fat; yields softer, more cake-like cookies with less crisp edges.\n\n### ⚠️ Notes\n- **Texture changes:** All substitutes will produce cookies that differ from the classic butter version — expect less crispness on edges and altered chew.\n- **Flavor:** Butter contributes a distinct richness; substitutes will taste \"cleaner\" but less indulgent.\n- **Spreading:** Coconut oil cookies may spread more; chill dough 30 minutes if this happens. Oil-based cookies spread less.\n- **Dairy-free/Vegan:** Both coconut oil and vegetable oil options are dairy-free and vegan-friendly.\n- **Browning:** Cookies may brown slightly less without butter's milk solids.\n\n---\n\n*Would you like suggestions adjusted for a specific dietary need (e.g., lower fat, vegan) or a different cookie texture preference (chewy vs. crispy)?*"
+    },
+    {
+      "id": "2",
+      "query": "What can I substitute for eggs in a vegan banana bread?",
+      "dimensions": {
+        "ingredient_type": "Binder",
+        "cooking_method": "Baking",
+        "dietary_restriction": "Vegan",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8900,
+      "response": "## Substituting Eggs in Vegan Banana Bread\n\n**Role in dish:** Binder & leavening — eggs provide structure, moisture, and help the bread rise\n\n### Best Substitute\n**Flax Egg** — 1 tablespoon ground flaxseed + 3 tablespoons water per 1 egg (let sit 5 minutes until gel-like)\nExcellent binder for quick breads; the nutty flavor complements banana bread well. Provides similar binding properties without affecting rise significantly.\n\n### Alternatives\n1. **Mashed Ripe Banana** — ¼ cup per 1 egg — You're already using banana, so adding extra works seamlessly; adds moisture and binding but may make bread denser and sweeter.\n2. **Unsweetened Applesauce** — ¼ cup per 1 egg — Neutral flavor, good moisture and binding; keeps bread tender but won't contribute to rise.\n\n### ⚠️ Notes\n- Since banana bread is already dense and moist, all three substitutes work particularly well here — eggs are less critical than in airier baked goods.\n- Flax egg provides the best structural support if your recipe calls for 2+ eggs.\n- Extra banana will intensify banana flavor and sweetness — consider reducing added sugar by 1-2 tablespoons.\n- For better rise, consider adding an extra ½ teaspoon baking powder alongside any of these substitutes.\n- All options are vegan-friendly and allergen-safe for egg allergies."
+    },
+    {
+      "id": "3",
+      "query": "I need a dairy-free substitute for heavy cream in my pasta sauce",
+      "dimensions": {
+        "ingredient_type": "Dairy",
+        "cooking_method": "Sauce",
+        "dietary_restriction": "Dairy-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 9197,
+      "response": "## Substituting Heavy Cream in Pasta Sauce\n\n**Role in dish:** Fat & liquid — provides richness, silky texture, and helps emulsify the sauce\n\n### Best Substitute\n**Full-Fat Coconut Cream** — 1:1 ratio (same amount as heavy cream)\nThe high fat content closely mimics heavy cream's richness and mouthfeel. It emulsifies well into warm pasta sauces and creates a similar velvety texture. May impart a subtle coconut undertone, which is less noticeable in garlic- or tomato-based sauces.\n\n### Alternatives\n1. **Cashew Cream** (blended soaked cashews + water) — 1:1 ratio — Neutral flavor, very creamy; blend ¾ cup raw cashews with ½ cup water until smooth to equal 1 cup cream.\n2. **Oat Cream (barista-style)** — 1:1 ratio — Mild flavor, slightly thinner; works best in lighter sauces; may need 1-2 extra minutes of simmering to thicken.\n\n### ⚠️ Notes\n- **Texture:** All substitutes are slightly thinner than heavy cream. Simmer your sauce a few extra minutes to reach desired consistency, or add ½ tsp cornstarch slurry if needed.\n- **Flavor:** Coconut cream works best in bold-flavored sauces (garlic, tomato, spicy). For delicate cream sauces (like alfredo), cashew cream provides the most neutral taste.\n- **Allergens:** Cashew cream contains tree nuts. Oat cream may contain gluten depending on the brand—check labels if needed.\n- **Separation risk:** Add dairy-free creams to warm (not boiling) sauce and stir continuously to prevent breaking."
+    },
+    {
+      "id": "4",
+      "query": "Can I replace all-purpose flour with something gluten-free in my pancakes?",
+      "dimensions": {
+        "ingredient_type": "Leavening base",
+        "cooking_method": "Baking",
+        "dietary_restriction": "Gluten-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 10394,
+      "response": "## Substituting All-Purpose Flour in Pancakes\n\n**Role in dish:** Structure — provides the base starch and proteins that create the pancake's body and hold it together when cooked\n\n### Best Substitute\n**1:1 Gluten-Free All-Purpose Flour Blend** (e.g., Bob's Red Mill, King Arthur) — 1:1 ratio\nThese blends are specifically formulated to mimic all-purpose flour's behavior, typically combining rice flour, tapioca starch, and potato starch. Pancakes will be very close to the original in texture and taste with minimal adjustment needed.\n\n### Alternatives\n1. **Oat Flour** — 1:1 ratio — Makes tender, slightly denser pancakes with a mild, nutty flavor. Ensure the oats are certified gluten-free if you have celiac disease.\n2. **Buckwheat Flour** — ¾ cup buckwheat + ¼ cup tapioca starch per 1 cup all-purpose flour — Produces earthy, hearty pancakes; works especially well for savory toppings. Despite the name, buckwheat is naturally gluten-free.\n\n### ⚠️ Notes\n- **Texture change:** Gluten-free pancakes may be slightly more fragile when flipping—let them cook a bit longer on the first side until bubbles set.\n- **Flavor:** Buckwheat has a distinct earthy taste that not everyone enjoys; oat flour is more neutral.\n- **Cross-contamination:** If you have celiac disease, verify all flours are certified gluten-free, as oats are often processed in facilities with wheat.\n- **Binding tip:** Gluten-free batters sometimes benefit from an extra egg or 1 tablespoon of ground flax mixed with 3 tablespoons water to improve structure.\n\nWould you like suggestions tailored to a specific type of pancake (fluffy American-style, thin crêpes, etc.) or any other dietary needs?"
+    },
+    {
+      "id": "5",
+      "query": "What's a good substitute for honey in a vegan salad dressing?",
+      "dimensions": {
+        "ingredient_type": "Sweetener",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Vegan",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8727,
+      "response": "## Substituting Honey in Vegan Salad Dressing\n\n**Role in dish:** Sweetener — provides viscosity, balances acidity, and adds subtle floral sweetness\n\n### Best Substitute\n**Maple Syrup** — 1:1 ratio (same amount as honey)\nWorks excellently in dressings as it has a similar consistency and dissolves easily into vinaigrettes. Adds a mild, earthy sweetness that complements most salad ingredients. Slightly thinner than honey, so dressing may be marginally less viscous.\n\n### Alternatives\n1. **Agave Nectar** — 1:1 ratio — Neutral flavor and similar thickness to honey; dissolves well in cold dressings; sweeter than honey, so taste and reduce if needed.\n2. **Date Syrup** — 1:1 ratio — Rich, caramel-like flavor; works best in heartier dressings (tahini-based, grain salads); darker color will tint light-colored dressings.\n\n### ⚠️ Notes\n- All three substitutes are vegan-friendly.\n- Maple syrup and agave have a more neutral profile; date syrup has a stronger, distinct taste that may dominate delicate dressings.\n- If the dressing relies on honey's thickness to emulsify (e.g., a creamy honey-mustard), add ½ tsp Dijon mustard to help bind the ingredients.\n- Color change: Date syrup will darken the dressing noticeably; maple syrup may add a slight amber tint."
+    },
+    {
+      "id": "6",
+      "query": "I don't have baking powder — what can I use in my muffins?",
+      "dimensions": {
+        "ingredient_type": "Leavening",
+        "cooking_method": "Baking",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8909,
+      "response": "## Substituting Baking Powder in Muffins\n\n**Role in dish:** Leavening agent — creates air bubbles that make muffins rise and achieve a light, fluffy texture\n\n### Best Substitute\n**Baking Soda + Cream of Tartar** — ¼ tsp baking soda + ½ tsp cream of tartar per 1 tsp baking powder\nThis recreates baking powder almost exactly, as commercial baking powder is essentially this combination. Works identically with no noticeable difference in texture or flavor.\n\n### Alternatives\n1. **Baking Soda + Acidic Ingredient** — ¼ tsp baking soda per 1 tsp baking powder, plus ensure your recipe has an acid (buttermilk, yogurt, lemon juice, vinegar) — Baking soda needs acid to activate; if your muffins already contain buttermilk or yogurt, this works well.\n2. **Self-Rising Flour** — replace all-purpose flour 1:1 with self-rising flour and omit the baking powder entirely — Self-rising flour already contains leavening; muffins will rise properly but may taste slightly different depending on the brand.\n\n### ⚠️ Notes\n- If using baking soda alone without enough acid in the batter, muffins will taste metallic/soapy and won't rise properly.\n- Whipped egg whites (2 whites, beaten stiff, folded in gently) can add some lift but won't fully replace chemical leavening — expect denser muffins.\n- Mix and bake immediately after combining wet and dry ingredients, as these substitutes lose potency faster than double-acting baking powder.\n- No allergen concerns with these substitutes.\n\n*Would you like guidance based on a specific muffin recipe or any dietary restrictions?*"
+    },
+    {
+      "id": "7",
+      "query": "What can I use instead of soy sauce for someone with a gluten intolerance?",
+      "dimensions": {
+        "ingredient_type": "Flavor",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "Gluten-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 9100,
+      "response": "## Substituting Soy Sauce for Gluten-Free Diets\n\n**Role in dish:** Flavor base — provides umami depth, saltiness, and dark color\n\n### Best Substitute\n**Tamari (gluten-free certified)** — 1:1 ratio\nTamari is traditionally brewed with little to no wheat, making it the closest match to soy sauce in flavor, color, and function. Always verify the label says \"gluten-free\" as some brands contain trace wheat.\n\n### Alternatives\n1. **Coconut Aminos** — 1:1 ratio (may need a pinch more salt) — Slightly sweeter and milder than soy sauce; lower sodium; soy-free as well as gluten-free.\n2. **Liquid Aminos (Bragg's)** — 1:1 ratio — Made from soybeans but no wheat; stronger/saltier flavor, so start with ¾ amount and adjust.\n\n### ⚠️ Notes\n- **Allergen flag:** Liquid aminos and tamari still contain soy — unsuitable for soy allergies.\n- Coconut aminos are both gluten-free AND soy-free, making them the safest choice for multiple sensitivities (no coconut allergen risk despite the name — made from coconut sap).\n- Color may vary: coconut aminos are lighter; tamari is comparable to soy sauce.\n- For stir-fries or marinades, any of these work seamlessly. For dipping sauces where flavor is front-and-center, tamari is the closest match.\n\n---\n\nWould you like suggestions tailored to a specific dish (e.g., stir-fry, marinade, dipping sauce)?"
+    },
+    {
+      "id": "8",
+      "query": "I need a nut-free substitute for almond flour in my keto brownies?",
+      "dimensions": {
+        "ingredient_type": "Leavening base",
+        "cooking_method": "Baking",
+        "dietary_restriction": "Nut-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 9441,
+      "response": "## Substituting Almond Flour in Keto Brownies\n\n**Role in dish:** Structure/bulk — provides low-carb flour base, fat content, and contributes to fudgy texture\n\n### Best Substitute\n**Sunflower Seed Flour** — 1:1 ratio (same amount as almond flour)\nClosest match for keto baking as it has similar fat content, protein, and carb count. Produces a comparable fudgy texture. **Important:** May turn green due to a reaction between sunflower seeds and baking soda/baking powder — this is harmless but can be minimized by adding 1 tsp of lemon juice or apple cider vinegar to the batter.\n\n### Alternatives\n1. **Coconut Flour** — ¼ cup per 1 cup almond flour + add 2 extra eggs — Highly absorbent, so requires much less flour and additional moisture; brownies will be slightly lighter and more cake-like.\n2. **Ground Pumpkin Seeds (Pepita Flour)** — 1:1 ratio — Good fat and protein profile; produces denser brownies with a slightly earthy, green-tinged color.\n\n### ⚠️ Notes\n- **Allergen flag:** Sunflower and pumpkin seeds are tree-nut-free and peanut-free, but always verify packaging for cross-contamination if you have severe allergies.\n- Sunflower seed flour may cause green discoloration — purely cosmetic and safe to eat.\n- Coconut flour dramatically changes texture; expect a lighter, less fudgy brownie.\n- All substitutes maintain keto-friendly macros (low net carbs, moderate-high fat).\n- For best results with sunflower seed flour, use Dutch-process cocoa (less alkaline) to further reduce greening."
+    },
+    {
+      "id": "9",
+      "query": "What can replace buttermilk in a dairy-free fried chicken marinade?",
+      "dimensions": {
+        "ingredient_type": "Dairy",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Dairy-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 11533,
+      "response": "## Substituting Buttermilk in Dairy-Free Fried Chicken Marinade\n\n**Role in dish:** Tenderizer / Marinade base — the acidity breaks down proteins for tender meat, while the liquid helps seasonings adhere and creates a base for the coating to stick\n\n### Best Substitute\n**Unsweetened Non-Dairy Milk + Acid** — 1 cup non-dairy milk + 1 tablespoon lemon juice or white vinegar (let sit 5-10 minutes to curdle)\n\nThis creates a \"vegan buttermilk\" that mimics the acidity and consistency of traditional buttermilk. Oat milk or soy milk work best due to their thicker texture and neutral flavor. The acid still tenderizes the chicken effectively.\n\n### Alternatives\n1. **Coconut Milk (full-fat, canned) + 1 tbsp Apple Cider Vinegar** — 1:1 ratio — Richer and thicker; excellent adhesion for breading, adds subtle richness. May impart very mild coconut flavor.\n2. **Unsweetened Non-Dairy Yogurt (thinned)** — ¾ cup yogurt + ¼ cup non-dairy milk per 1 cup buttermilk — Thicker coating, extra tangy; coconut or oat-based yogurts work well. Check label for dairy derivatives.\n\n### ⚠️ Notes\n- **Always check labels** — some non-dairy milks and yogurts contain casein or other dairy derivatives.\n- **Almond milk** works but is thinner; coating may not adhere as well.\n- **Marinating time remains the same** (2-24 hours) — the acid level is comparable to buttermilk.\n- Flavor will be nearly identical once fried; any subtle differences are masked by seasoning and breading.\n- **Soy allergy?** Use oat or coconut milk instead."
+    },
+    {
+      "id": "10",
+      "query": "I have no cornstarch — what can I use to thicken my stir-fry sauce?",
+      "dimensions": {
+        "ingredient_type": "Thickener",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8196,
+      "response": "## Substituting Cornstarch in Stir-Fry Sauce\n\n**Role in dish:** Thickener — creates a glossy, clingy sauce that coats ingredients without adding flavor\n\n### Best Substitute\n**All-Purpose Flour** — 2 tablespoons flour per 1 tablespoon cornstarch\nWorks well for stir-fry sauces as it thickens reliably. Mix with cold water first (slurry) to prevent lumps. Sauce will be slightly less glossy and more opaque than with cornstarch, and requires an extra minute of cooking to remove the raw flour taste.\n\n### Alternatives\n1. **Arrowroot Powder** — 1:1 ratio (same amount as cornstarch) — Produces a glossy finish very similar to cornstarch; add at the end as it breaks down with prolonged heat.\n2. **Potato Starch** — 1:1 ratio — Thickens quickly and gives good gloss; also breaks down if overcooked, so stir in during the final minute.\n\n### ⚠️ Notes\n- **Flour** is the most accessible option but will make your sauce slightly cloudy rather than glossy.\n- **Arrowroot and potato starch** are closer matches but less common in pantries — if you have either, use them.\n- All three substitutes should be mixed with cold liquid before adding to hot sauce to prevent clumping.\n- If you need a **gluten-free** option, avoid flour — use arrowroot or potato starch instead."
+    },
+    {
+      "id": "11",
+      "query": "What's a vegan substitute for gelatin in my panna cotta?",
+      "dimensions": {
+        "ingredient_type": "Binder",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Vegan",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 11776,
+      "response": "## Substituting Gelatin in Panna Cotta\n\n**Role in dish:** Gelling agent — sets the cream into a soft, jiggly, unmoldable custard with a smooth, melt-in-mouth texture\n\n### Best Substitute\n**Agar-Agar** — use ½ to ¾ teaspoon agar powder per 1 teaspoon gelatin powder (or 1 tablespoon agar flakes per 1 teaspoon gelatin)\n\nAgar is derived from seaweed and sets firmly at room temperature. It creates a clean set that unmolds well. However, agar produces a slightly firmer, more brittle texture than gelatin's characteristic \"wobble\" — panna cotta will slice cleanly rather than jiggle. Must be boiled for 1-2 minutes to activate (unlike gelatin which only needs blooming).\n\n### Alternatives\n1. **Carrageenan (Iota or Kappa blend)** — ½ teaspoon per cup of liquid — Produces a softer, more gelatin-like wobble; iota carrageenan specifically mimics gelatin's mouthfeel best, but can be harder to find.\n2. **Vegan Jel (commercial blends)** — follow package directions (typically 1½ teaspoons per cup of liquid) — Pre-mixed plant-based gelling agents designed to mimic gelatin; results vary by brand but generally user-friendly.\n\n### ⚠️ Notes\n- **Texture difference:** Agar sets more firmly and doesn't melt on the tongue the way gelatin does — your panna cotta will feel slightly less creamy in the mouth.\n- **Temperature matters:** Agar must reach a full boil to activate; gelatin only needs warm liquid. Adjust your technique accordingly.\n- **Acidic ingredients:** If adding citrus or acidic fruit, agar may require slightly more quantity as acid weakens its setting power.\n- **Unmolding:** Agar-set panna cotta unmolds more reliably than gelatin, which can be an advantage.\n- For the closest texture to traditional panna cotta, iota carrageenan is ideal if you can source it.\n\nWould you like guidance on adjusting for a specific plant-based cream or adding fruit?"
+    },
+    {
+      "id": "12",
+      "query": "Can I substitute something for parmesan in a dairy-free risotto?",
+      "dimensions": {
+        "ingredient_type": "Flavor",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "Dairy-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 10510,
+      "response": "## Substituting Parmesan in Dairy-Free Risotto\n\n**Role in dish:** Flavor — provides umami depth, saltiness, and a subtle nuttiness; also contributes to the creamy texture when stirred in at the end\n\n### Best Substitute\n**Nutritional Yeast** — 3 tablespoons per ¼ cup grated parmesan\nDelivers a similar cheesy, umami-rich flavor without any dairy. Dissolves smoothly into risotto and adds a slight nuttiness. Won't provide the same richness or body, so consider adding a drizzle of olive oil for mouthfeel.\n\n### Alternatives\n1. **Vegan Parmesan (store-bought or homemade from cashews, nutritional yeast, garlic powder, salt)** — 1:1 ratio — Closest in texture and flavor; melts less but provides good savory depth.\n2. **White Miso Paste** — 1 tablespoon per ¼ cup parmesan — Adds deep umami and saltiness; use sparingly as it can overpower. Works best combined with a splash of lemon juice to brighten.\n\n### ⚠️ Notes\n- Nutritional yeast is gluten-free and vegan; check labels if you have yeast sensitivities (it's deactivated yeast, generally safe for most).\n- Store-bought vegan parmesan may contain nuts (typically cashews or almonds) — **flag for tree nut allergies**.\n- Miso paste contains soy — **flag for soy allergies**.\n- None of these will melt and create the same silky, clingy texture as real parmesan. To compensate, finish your risotto with a tablespoon of dairy-free butter or extra olive oil and stir vigorously.\n- For maximum umami, you can combine nutritional yeast with a small amount of miso (1 tbsp yeast + ½ tsp miso) for a more complex flavor.\n\n---\n\n*Would you like suggestions tailored to a specific vegan butter or other dietary needs (e.g., nut-free, soy-free)?*"
+    },
+    {
+      "id": "13",
+      "query": "What can I use instead of white wine in my mushroom risotto?",
+      "dimensions": {
+        "ingredient_type": "Liquid/flavor",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 9894,
+      "response": "## Substituting White Wine in Mushroom Risotto\n\n**Role in dish:** Flavor base & liquid — adds acidity to deglaze the pan, brightens the dish, and provides depth of flavor\n\n### Best Substitute\n**Chicken or Vegetable Broth + Lemon Juice** — 1 cup broth + 1 tablespoon lemon juice per 1 cup wine\nThe broth provides the liquid needed for deglazing while the lemon juice mimics the acidity that makes wine essential in risotto. You'll get a clean, savory result without the wine's complexity, but the dish will still taste balanced.\n\n### Alternatives\n1. **Dry Vermouth** — 1:1 ratio — Closest flavor match if you have it; slightly more herbal than wine but works nearly identically.\n2. **White Grape Juice + White Wine Vinegar** — ¾ cup juice + 1 tablespoon vinegar per 1 cup wine — Adds subtle sweetness and acidity; works well but risotto will be slightly sweeter.\n\n### ⚠️ Notes\n- If avoiding alcohol entirely, the broth + lemon juice option is your best bet — vermouth still contains alcohol.\n- Skipping the acidic component altogether will make the risotto taste flatter; the acid is key for cutting through the richness of butter and parmesan.\n- Apple cider vinegar is not recommended here as it will add an off-flavor that clashes with mushrooms.\n- For a deeper umami note with the broth substitute, add a splash of soy sauce or a pinch of white miso.\n\n*Feel free to let me know if you have any dietary restrictions or if you'd like a non-alcoholic option specifically — happy to refine!*"
+    },
+    {
+      "id": "14",
+      "query": "I need an egg substitute for coating chicken before frying",
+      "dimensions": {
+        "ingredient_type": "Binder",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 10069,
+      "response": "## Substituting Eggs in Coating Chicken Before Frying\n\n**Role in dish:** Binder — creates a sticky surface for breading to adhere to the chicken during frying\n\n### Best Substitute\n**Buttermilk** — use enough to fully dredge each piece (about 1 cup for 4 chicken pieces)\nButtermilk provides excellent adhesion for breading and adds subtle tang that tenderizes the meat. It's the classic choice for Southern fried chicken and creates a crispy, well-attached coating.\n\n### Alternatives\n1. **Plain Yogurt (thinned)** — mix ½ cup yogurt with 2 tbsp water per 1 egg — Similar acidity and binding properties to buttermilk; coating adheres well with slight tang.\n2. **Heavy Cream or Milk** — 1:1 replacement for the volume of beaten egg — Less sticky than egg so press breading firmly; works best with a double-dredge technique (flour → milk → flour → milk → breading).\n\n### ⚠️ Notes\n- **Texture change:** Buttermilk and yogurt often produce a *crispier* crust than egg due to their acidity reacting with the breading.\n- **Dairy-free need?** If avoiding dairy, use unsweetened non-dairy milk mixed with 1 tsp Dijon mustard per cup — the mustard adds viscosity and helps binding.\n- **Adhesion tip:** For any substitute, let the coated chicken rest 5-10 minutes before frying to help the breading set.\n- All dairy-based options are **not suitable for vegan diets** — let me know if you need a fully plant-based option."
+    },
+    {
+      "id": "15",
+      "query": "What's a substitute for sugar in a keto chocolate cake?",
+      "dimensions": {
+        "ingredient_type": "Sweetener",
+        "cooking_method": "Baking",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 9848,
+      "response": "## Substituting Sugar in Keto Chocolate Cake\n\n**Role in dish:** Sweetener — provides sweetness, moisture retention, and contributes to browning and tender crumb structure\n\n### Best Substitute\n**Erythritol (granulated)** — 1:1 ratio (same amount as sugar)\nA sugar alcohol that measures like sugar with zero net carbs and no blood sugar impact. Provides bulk and sweetness nearly identical to sugar. May have a slight cooling aftertaste; mixing with a small amount of monk fruit can offset this.\n\n### Alternatives\n1. **Allulose** — 1:1 ratio — Closest texture to real sugar, browns well, no aftertaste. Slightly less sweet (~70% of sugar), so taste and adjust. More expensive and less widely available.\n2. **Monk Fruit Sweetener (with erythritol blend)** — 1:1 ratio (if using a \"measures like sugar\" blend) — Very sweet with no carbs; choose a baking blend to ensure proper bulk. Pure monk fruit extract is much sweeter and requires different ratios.\n\n### ⚠️ Notes\n- **Texture change:** Keto sweeteners don't caramelize or retain moisture like sugar. Cake may be slightly drier — consider adding an extra tablespoon of butter or coconut oil.\n- **Cooling effect:** Erythritol can leave a cooling sensation on the tongue; this is less noticeable in chocolate cakes due to the strong cocoa flavor.\n- **Digestive sensitivity:** Sugar alcohols like erythritol may cause digestive discomfort in large amounts for some people. Allulose is generally better tolerated.\n- **Not interchangeable with liquid sweeteners:** Avoid substituting with stevia drops or liquid monk fruit, as they lack the bulk needed for cake structure."
+    },
+    {
+      "id": "16",
+      "query": "I ran out of olive oil for sautéing vegetables — what works?",
+      "dimensions": {
+        "ingredient_type": "Fat",
+        "cooking_method": "Sautéing",
+        "dietary_restriction": "None",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 7339,
+      "response": "## Substituting Olive Oil in Sautéed Vegetables\n\n**Role in dish:** Fat — provides heat transfer for cooking, prevents sticking, and adds subtle flavor\n\n### Best Substitute\n**Butter (or Ghee)** — 1:1 ratio (same amount as olive oil)\nExcellent for sautéing at medium heat, adds rich flavor that complements most vegetables. Butter may brown faster than olive oil, so keep heat at medium; ghee has a higher smoke point and works better for higher-heat sautéing.\n\n### Alternatives\n1. **Avocado Oil** — 1:1 ratio — Neutral flavor, high smoke point; closest functional match, vegetables will taste very similar.\n2. **Vegetable or Canola Oil** — 1:1 ratio — Neutral flavor, widely available; works well but lacks the fruity depth olive oil provides.\n\n### ⚠️ Notes\n- **Dairy alert:** Butter and ghee are not suitable for dairy-free or vegan diets. Use avocado or vegetable oil instead.\n- Butter will add a slightly richer, more savory flavor to your vegetables.\n- If you want to approximate olive oil's fruity flavor, finish with a small drizzle of sesame oil or a squeeze of lemon after cooking.\n- For high-heat sautéing (stir-frying), avoid butter and choose avocado oil or ghee to prevent burning."
+    },
+    {
+      "id": "17",
+      "query": "What can I use instead of milk in mashed potatoes for a dairy-free version?",
+      "dimensions": {
+        "ingredient_type": "Dairy",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Dairy-free",
+        "query_clarity": "Vague"
+      },
+      "status": "success",
+      "duration_ms": 9964,
+      "response": "## Substituting Milk in Mashed Potatoes (Dairy-Free)\n\n**Role in dish:** Liquid — adds creaminess, moisture, and helps achieve smooth texture\n\n### Best Substitute\n**Unsweetened Oat Milk** — 1:1 ratio (same amount as milk)\nOat milk has a naturally creamy texture and neutral flavor that blends seamlessly into mashed potatoes. It provides similar body without any competing taste, making it nearly indistinguishable from dairy milk in this application.\n\n### Alternatives\n1. **Full-Fat Coconut Milk (canned)** — ¾ cup per 1 cup milk — Extremely creamy and rich; may impart a very subtle coconut undertone, though this is usually undetectable with savory seasonings.\n2. **Unsweetened Soy Milk** — 1:1 ratio — Good protein content and creamy texture; has a slightly beany taste that most people won't notice once mixed with butter substitute and salt.\n\n### ⚠️ Notes\n- **For richness:** Since you're going dairy-free, you'll likely also need to replace butter. Consider using vegan butter or olive oil (2-3 tablespoons) to maintain that luxurious mouthfeel.\n- **Texture change:** Plant milks are slightly thinner than whole dairy milk, so add gradually — you may need slightly less than the recipe calls for.\n- **Allergen flag:** Soy milk contains soy; coconut is a tree nut under FDA classification (though most with tree nut allergies tolerate it — check with your specific needs).\n- **Avoid:** Sweetened or flavored plant milks, as they will make your potatoes taste off.\n\n*Feel free to share if you have additional allergies or preferences (nut-free, soy-free, etc.) and I can refine the suggestions!*"
+    },
+    {
+      "id": "18",
+      "query": "I need something to replace breadcrumbs in meatballs for a gluten-free diet",
+      "dimensions": {
+        "ingredient_type": "Binder",
+        "cooking_method": "Baking",
+        "dietary_restriction": "Gluten-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8717,
+      "response": "## Substituting Breadcrumbs in Meatballs (Gluten-Free)\n\n**Role in dish:** Binder — absorbs moisture, adds structure, and keeps meatballs tender by preventing the meat proteins from tightening too much\n\n### Best Substitute\n**Rolled Oats (certified gluten-free)** — 1:1 ratio (same amount as breadcrumbs)\nOats absorb moisture similarly to breadcrumbs and create a tender texture. Pulse them briefly in a food processor for a finer consistency that blends seamlessly into the meat mixture. Meatballs will be very similar to the original in texture and hold together well.\n\n### Alternatives\n1. **Almond Flour** — ¾ cup per 1 cup breadcrumbs — Adds richness and binds well; meatballs may be slightly denser and have a subtly nutty undertone.\n2. **Cooked Quinoa** — ½ cup per 1 cup breadcrumbs — Provides moisture and protein; meatballs will be softer with visible quinoa specks throughout.\n\n### ⚠️ Notes\n- **Nut allergy warning:** Almond flour is not suitable if there's a tree nut allergy.\n- Oats must be labeled \"certified gluten-free\" to avoid cross-contamination — regular oats are often processed with wheat.\n- All three substitutes hold up well to baking, pan-frying, or simmering in sauce.\n- Texture will be very close to traditional breadcrumbs with oats; quinoa will yield a noticeably softer, moister meatball.\n\nWould you like suggestions tailored to a specific meatball style (Italian, Swedish, Asian-inspired) or additional dietary needs?"
+    },
+    {
+      "id": "19",
+      "query": "What's a substitute for mayonnaise in a vegan coleslaw?",
+      "dimensions": {
+        "ingredient_type": "Fat/binder",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Vegan",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 8750,
+      "response": "## Substituting Mayonnaise in Vegan Coleslaw\n\n**Role in dish:** Fat/emulsifier — provides creaminess, binds the dressing, adds richness and tangy flavor\n\n### Best Substitute\n**Vegan Mayonnaise (store-bought or homemade)** — 1:1 ratio\nThe closest match in texture, flavor, and function. Made from plant oils and aquafaba or soy, it behaves identically to regular mayo. No recipe adjustments needed.\n\n### Alternatives\n1. **Cashew Cream + 1 tsp Apple Cider Vinegar** — 1:1 ratio — Blend soaked raw cashews with water until smooth, add vinegar for tang. Rich and creamy; slightly nuttier flavor.\n2. **Plain Unsweetened Coconut Yogurt + 1 tsp Dijon Mustard** — 1:1 ratio — Tangy and creamy; thinner consistency, so drain excess liquid first. Adds slight coconut undertone.\n\n### ⚠️ Notes\n- **Tree nut allergy:** Avoid cashew cream if allergies are a concern.\n- **Coconut allergy:** Skip the coconut yogurt alternative.\n- Cashew cream will be slightly thicker and richer than mayo — thin with a splash of plant milk if needed.\n- Coconut yogurt version may be tangier and less rich; adding 1 tbsp olive oil can improve mouthfeel.\n- For best results with cashew cream, soak cashews for 4+ hours or boil for 15 minutes before blending."
+    },
+    {
+      "id": "20",
+      "query": "Can I replace cream cheese in my frosting with something dairy-free?",
+      "dimensions": {
+        "ingredient_type": "Dairy",
+        "cooking_method": "Raw/no-cook",
+        "dietary_restriction": "Dairy-free",
+        "query_clarity": "Specific"
+      },
+      "status": "success",
+      "duration_ms": 10535,
+      "response": "## Substituting Cream Cheese in Frosting (Dairy-Free)\n\n**Role in dish:** Fat & body — provides tangy flavor, rich texture, and structural stability for piped or spread frostings\n\n### Best Substitute\n**Dairy-Free Cream Cheese (e.g., Kite Hill, Violife, Miyoko's)** — 1:1 ratio\nPurpose-made alternatives that mimic the tang, texture, and consistency of traditional cream cheese. Works nearly identically in frosting with minimal adjustment. Choose a brand with higher fat content for best stability.\n\n### Alternatives\n1. **Coconut Cream (solid portion) + 1 tbsp lemon juice** — ¾ cup coconut cream per 8 oz cream cheese — Provides richness and the lemon adds tang; frosting will be slightly softer and may have mild coconut flavor.\n2. **Silken Tofu (blended smooth) + 1 tbsp lemon juice** — 1:1 ratio — Neutral base that whips well; frosting will be lighter, less rich, and needs extra powdered sugar for stability.\n\n### ⚠️ Notes\n- **Texture change:** All substitutes produce a slightly softer frosting than traditional cream cheese. Refrigerate for 30 minutes before piping for best results.\n- **Flavor adjustment:** Dairy-free cream cheeses vary in tanginess — taste and add ½ tsp lemon juice if needed.\n- **Coconut cream:** Not suitable if avoiding coconut; ensure you use the thick, solid cream from the top of a chilled can (not coconut milk).\n- **Soy allergy:** Avoid silken tofu option if soy is a concern.\n- **Stability:** For stacked cakes or warm environments, dairy-free cream cheese holds up best; coconut cream and tofu options may soften.\n\n---\n\n*Would you like suggestions adjusted for a specific frosting type (buttercream-style, whipped, etc.) or any additional dietary needs?*"
+    }
+  ]
+}

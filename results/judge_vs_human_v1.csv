@@ -1,0 +1,21 @@
+id,query,dietary,original,DIETARY,RATIO,ALTERNATIVES,FORMAT,judge_overall,human_label,agree
+1,I'm out of butter for my chocolate chip cookies — what can I use instead?,None,Butter,PASS,PASS,PASS,PASS,PASS,PASS,YES
+2,What can I substitute for eggs in a vegan banana bread?,Vegan,Eggs,PASS,PASS,PASS,PASS,PASS,PASS,YES
+3,I need a dairy-free substitute for heavy cream in my pasta sauce,Dairy-free,Heavy Cream,PASS,PASS,PASS,PASS,PASS,PASS,YES
+4,Can I replace all-purpose flour with something gluten-free in my pancakes?,Gluten-free,All-Purpose Flour,PASS,PASS,PASS,PASS,PASS,PASS,YES
+5,What's a good substitute for honey in a vegan salad dressing?,Vegan,Honey,PASS,PASS,PASS,PASS,PASS,PASS,YES
+6,I don't have baking powder — what can I use in my muffins?,None,Baking Powder,PASS,PASS,PASS,PASS,PASS,PASS,YES
+7,What can I use instead of soy sauce for someone with a gluten intolerance?,Gluten-free,Soy Sauce,PASS,PASS,PASS,PASS,PASS,PASS,YES
+8,I need a nut-free substitute for almond flour in my keto brownies?,Nut-free,Almond Flour,PASS,PASS,PASS,PASS,PASS,PASS,YES
+9,What can replace buttermilk in a dairy-free fried chicken marinade?,Dairy-free,Buttermilk,PASS,PASS,PASS,PASS,PASS,PASS,YES
+10,I have no cornstarch — what can I use to thicken my stir-fry sauce?,None,Cornstarch,PASS,PASS,PASS,PASS,PASS,PASS,YES
+11,What's a vegan substitute for gelatin in my panna cotta?,Vegan,Gelatin,PASS,PASS,PASS,PASS,PASS,PASS,YES
+12,Can I substitute something for parmesan in a dairy-free risotto?,Dairy-free,Parmesan,PASS,PASS,PASS,PASS,PASS,PASS,YES
+13,What can I use instead of white wine in my mushroom risotto?,None,White Wine,PASS,PASS,PASS,PASS,PASS,PASS,YES
+14,I need an egg substitute for coating chicken before frying,None,Eggs,PASS,PASS,PASS,PASS,PASS,PASS,YES
+15,What's a substitute for sugar in a keto chocolate cake?,None,Sugar,PASS,PASS,PASS,PASS,PASS,PASS,YES
+16,I ran out of olive oil for sautéing vegetables — what works?,None,Olive Oil,PASS,PASS,PASS,PASS,PASS,PASS,YES
+17,What can I use instead of milk in mashed potatoes for a dairy-free version?,Dairy-free,Milk,PASS,PASS,PASS,PASS,PASS,PASS,YES
+18,I need something to replace breadcrumbs in meatballs for a gluten-free diet,Gluten-free,Breadcrumbs,PASS,PASS,PASS,PASS,PASS,PASS,YES
+19,What's a substitute for mayonnaise in a vegan coleslaw?,Vegan,Mayonnaise,PASS,PASS,PASS,PASS,PASS,PASS,YES
+20,Can I replace cream cheese in my frosting with something dairy-free?,Dairy-free,Cream Cheese,PASS,PASS,PASS,PASS,PASS,PASS,YES
