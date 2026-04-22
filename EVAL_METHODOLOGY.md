@@ -32,6 +32,9 @@
 | 10 | Part 3 | Apply grounded theory to the findings | Open → Axial → Selective coding — identify CB-01 as core failure | 🔴 Selective Coding | ✅ Done | `SubEval_GroundedTheory.docx` / Downloads |
 | 11 | Part 3 | Prove the improvement with data | Fix checker V1→V4, re-run, compare before/after — TNR 35%→100% | — | ✅ Done | `scripts/error_analysis.py` / GitHub |
 | 12 | Part 3 | Capture full methodology as reusable reference | Wrap-up doc — overall logical flow of eval | — | ✅ Done | `EVAL_METHODOLOGY.md` / GitHub |
+| 13 | LLM-as-Judge | Design meaning-based evaluation criteria | Write judge prompt — 4 criteria + output format | — | ✅ Done | `prompts/judge_prompt.txt` / GitHub |
+| 14 | LLM-as-Judge | Run Claude as evaluator on all 20 responses | Execute llm_judge.py — score each response PASS/FAIL per criterion | — | ✅ Done | `results/judge_results_20260422_090125.json` / GitHub |
+| 15 | LLM-as-Judge | Compare judge vs human — measure reliability | Compute judge agreement rate — 100% (20/20) | — | ✅ Done | `results/judge_vs_human.csv` / GitHub |
 
 ---
 
