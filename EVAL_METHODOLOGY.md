@@ -30,8 +30,8 @@
 | 8 | Part 3 | Quantify how good the checker is | Compute TPR, TNR, Precision, FPR | 🔵 Open Coding | ✅ Done | `results/analysis_summary.md` / GitHub |
 | 9 | Part 3 | Name and categorize what goes wrong | Build failure taxonomy — FM-01..FM-06, CB-01..CB-03 | 🟡 Axial Coding | ✅ Done | `failure_taxonomy.md` / GitHub |
 | 10 | Part 3 | Apply grounded theory to the findings | Open → Axial → Selective coding — identify CB-01 as core failure | 🔴 Selective Coding | ✅ Done | `SubEval_GroundedTheory.docx` / Downloads |
-| 11 | Stage 6 | Prove the improvement with data | Fix checker V1→V4, re-run, compare before/after — TNR 35%→100% | — | ✅ Done | `scripts/error_analysis.py` / GitHub |
-| 12 | Stage 6 | Capture full methodology as reusable reference | Wrap-up doc — overall logical flow of eval | — | ✅ Done | `EVAL_METHODOLOGY.md` / GitHub |
+| 11 | Part 3 | Prove the improvement with data | Fix checker V1→V4, re-run, compare before/after — TNR 35%→100% | — | ✅ Done | `scripts/error_analysis.py` / GitHub |
+| 12 | Part 3 | Capture full methodology as reusable reference | Wrap-up doc — overall logical flow of eval | — | ✅ Done | `EVAL_METHODOLOGY.md` / GitHub |
 
 ---
 
