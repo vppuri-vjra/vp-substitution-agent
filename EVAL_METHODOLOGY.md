@@ -35,6 +35,10 @@
 | 13 | LLM-as-Judge | Design meaning-based evaluation criteria | Write judge prompt — 4 criteria + output format | — | ✅ Done | `prompts/judge_prompt.txt` / GitHub |
 | 14 | LLM-as-Judge | Run Claude as evaluator on all 20 responses | Execute llm_judge.py — score each response PASS/FAIL per criterion | — | ✅ Done | `results/judge_results_20260422_090125.json` / GitHub |
 | 15 | LLM-as-Judge | Compare judge vs human — measure reliability | Compute judge agreement rate — 100% (20/20) | — | ✅ Done | `results/judge_vs_human.csv` / GitHub |
+| 16 | A/B Testing | Define hypothesis — does the worked example matter? | Create system_prompt_v2.txt — remove worked example, keep all else identical | — | ✅ Done | `prompts/system_prompt_v2.txt` / GitHub |
+| 17 | A/B Testing | Collect responses for both prompt versions | Run bulk_test_ab.py — 20 queries × 2 versions = 40 API calls | — | ✅ Done | `results/results_v1_*.json` + `results_v2_*.json` / GitHub |
+| 18 | A/B Testing | Judge both versions with same criteria | Run llm_judge.py on V1 and V2 outputs | — | ✅ Done | `results/judge_results_v1_*.json` + `judge_results_v2_*.json` / GitHub |
+| 19 | A/B Testing | Compare pass rates — measure prompt impact | V1 vs V2 — both 100% pass rate, worked example is redundant | — | ✅ Done | `results/judge_vs_human_v1.csv` + `judge_vs_human_v2.csv` / GitHub |
 
 ---
 
@@ -101,6 +105,27 @@
 > claude-opus-4-5 followed every constraint correctly across all 20 queries.  
 > The eval work was entirely about improving the automated checker's ability  
 > to distinguish "original ingredient mentioned in context" from "forbidden ingredient recommended."
+
+---
+
+## A/B Prompt Testing Results
+
+**Hypothesis:** Does the worked example (butter → coconut oil) in the system prompt affect response quality?
+
+| | Version A | Version B |
+|---|---|---|
+| Prompt | With worked example | Without worked example |
+| Queries | 20 | 20 |
+| Pass rate | 100% | 100% |
+| Judge agreement | 100% | 100% |
+| Disagreements | 0 | 0 |
+
+**Finding:** The worked example makes no measurable difference to pass rate.
+The model follows formatting instructions alone — the example is redundant for this query set.
+
+**Implication:** Version B (shorter prompt, fewer tokens) can be shipped without quality loss.
+
+**Golden rule of A/B testing:** Change one variable at a time. Everything else was identical between V1 and V2.
 
 ---
 
